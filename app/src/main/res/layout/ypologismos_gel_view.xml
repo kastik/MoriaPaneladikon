@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/mathima1_gel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:ems="10"
+            android:hint="@string/mathimage1"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/mathima2_gel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/mathimage2"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintStart_toStartOf="@+id/mathima1_gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima1_gel" />
+
+        <EditText
+            android:id="@+id/mathima3_gel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/mathimagel3"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintStart_toStartOf="@+id/mathima2_gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima2_gel" />
+
+        <EditText
+            android:id="@+id/mathima4_gel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/mathimagel4"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintStart_toStartOf="@+id/mathima3_gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima3_gel" />
+
+        <Button
+            android:id="@+id/calcBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/clc"
+            app:layout_constraintEnd_toEndOf="@+id/gelSpecialLessonEditText3"
+            app:layout_constraintStart_toStartOf="@+id/gelSpecialLessonEditText3"
+            app:layout_constraintTop_toBottomOf="@+id/gelSpecialLessonEditText3" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:entries="@array/IdikaMathimata"
+            app:layout_constraintEnd_toEndOf="@+id/mathima4_gel"
+            app:layout_constraintStart_toStartOf="@+id/mathima4_gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima4_gel" />
+
+        <EditText
+            android:id="@+id/gelSpecialLessonEditText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@+id/spinner"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/gelSpecialLessonEditText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/gelSpecialLessonEditText1"
+            app:layout_constraintStart_toStartOf="@+id/gelSpecialLessonEditText1"
+            app:layout_constraintTop_toBottomOf="@+id/gelSpecialLessonEditText1"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/gelSpecialLessonEditText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/gelSpecialLessonEditText2"
+            app:layout_constraintStart_toStartOf="@+id/gelSpecialLessonEditText2"
+            app:layout_constraintTop_toBottomOf="@+id/gelSpecialLessonEditText2"
+            tools:ignore="LabelFor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

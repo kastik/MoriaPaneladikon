@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".YpologismosEpal">
+
+        <EditText
+            android:id="@+id/morio_genikis_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:hint="@string/mathimagenikis1"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/morio_genikis_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginLeft="101dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginRight="101dp"
+            android:ems="10"
+            android:hint="@string/mathimagenikis2"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/morio_genikis_1" />
+
+        <EditText
+            android:id="@+id/morio_idikotitas_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginLeft="101dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginRight="101dp"
+            android:ems="10"
+            android:hint="@string/mathimaidikotitas1"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/morio_genikis_2" />
+
+        <EditText
+            android:id="@+id/morio_idikotitas_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="101dp"
+            android:layout_marginLeft="101dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginRight="101dp"
+            android:ems="10"
+            android:hint="@string/mathimaidikotitas2"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned|numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/morio_idikotitas_1" />
+
+        <Spinner
+            android:id="@+id/epalSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:entries="@array/IdikaMathimata"
+            app:layout_constraintEnd_toEndOf="@+id/morio_idikotitas_2"
+            app:layout_constraintStart_toStartOf="@+id/morio_idikotitas_2"
+            app:layout_constraintTop_toBottomOf="@+id/morio_idikotitas_2" />
+
+        <Button
+            android:id="@+id/calcButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/clc"
+            app:backgroundTint="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="@+id/epalSpecialLessonEditText3"
+            app:layout_constraintStart_toStartOf="@+id/epalSpecialLessonEditText3"
+            app:layout_constraintTop_toBottomOf="@+id/epalSpecialLessonEditText3" />
+
+        <EditText
+            android:id="@+id/epalSpecialLessonEditText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/epalSpinner"
+            app:layout_constraintStart_toStartOf="@+id/epalSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/epalSpinner"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/epalSpecialLessonEditText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/epalSpecialLessonEditText1"
+            app:layout_constraintStart_toStartOf="@+id/epalSpecialLessonEditText1"
+            app:layout_constraintTop_toBottomOf="@+id/epalSpecialLessonEditText1"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/epalSpecialLessonEditText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberSigned"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/epalSpecialLessonEditText2"
+            app:layout_constraintStart_toStartOf="@+id/epalSpecialLessonEditText2"
+            app:layout_constraintTop_toBottomOf="@+id/epalSpecialLessonEditText2"
+            tools:ignore="LabelFor" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

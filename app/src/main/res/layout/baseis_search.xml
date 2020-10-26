@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/xronologiaView"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/xronologia"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <Spinner
+        android:id="@+id/xronologiaSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/xronologiaView"
+        app:layout_constraintStart_toStartOf="@+id/xronologiaView"
+        app:layout_constraintTop_toBottomOf="@+id/xronologiaView" />
+
+    <TextView
+        android:id="@+id/schoolTypeView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:text="@string/typos"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/xronologiaSpinner"
+        app:layout_constraintStart_toStartOf="@+id/xronologiaSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/xronologiaSpinner" />
+
+    <Spinner
+        android:id="@+id/schoolTypeSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/schoolTypeView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/schoolTypeView"
+        app:layout_constraintTop_toBottomOf="@+id/schoolTypeView" />
+
+    <TextView
+        android:id="@+id/idikotitaView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/schoolTypeSpinner"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/schoolTypeSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/schoolTypeSpinner" />
+
+    <Spinner
+        android:id="@+id/idikotitaSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/idikotitaView"
+        app:layout_constraintStart_toStartOf="@+id/idikotitaView"
+        app:layout_constraintTop_toBottomOf="@+id/idikotitaView" />
+
+    <Button
+        android:id="@+id/searchbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idikotitaSpinner"
+        app:layout_constraintVertical_bias="0.26999998" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="AvailableYears">
+        <item>2020</item>
+        <item>2019</item>
+        <item>2018</item>
+    </string-array>
+
+    <string-array name="PediaToShow">
+        <item>Όλα</item>
+        <item>1ο Πεδίο</item>
+        <item>2ο Πεδίο</item>
+        <item>3ο Πεδίο</item>
+        <item>4ο Πεδίο</item>
+    </string-array>
+
+    <integer-array name="Pedia">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+
+    <string-array name="Schools2020">
+        <item>ΓΕΛ Ημερίσια Νέο Σύστημα</item>
+        <item>ΓΕΛ Εσπερινά Νέο Σύστημα</item>
+        <item>ΓΕΛ Ημερίσια Παλιό Σύστημα</item>
+        <item>ΓΕΛ Εσπερινά Παλιό Σύστημα</item>
+        <item>ΕΠΑΛ Ημερίσια</item>
+        <item>ΕΠΑΛ Εσπερινά</item>
+    </string-array>
+
+    <string-array name="Paths2020">
+        <item>/Gel_Neo_Imerisia</item>
+        <item>/Gel_Neo_Esperina</item>
+        <item>/Gel_Palio_Imerisia"</item>
+        <item>/Gel_Palio_Esperina</item>
+        <item>/Epal</item>
+        <item>/Epal_Esperina</item>
+    </string-array>
+
+    <string-array name="Schools2019">
+        <item>ΓΕΛ Ημερίσια</item>
+        <item>ΓΕΛ Εσπερινά</item>
+        <item>ΕΠΑΛ Ημερίσια</item>
+        <item>ΕΠΑΛ Εσπερινά</item>
+    </string-array>
+
+    <string-array name="TomisToShow">
+        <item>Κοινά</item>
+        <item>Γεωπονίας, Τροφίμων και Περιβάλλοντος</item>
+        <item>Διοίκησης και Οικονομίας</item>
+        <item> Δομικών Έργων, Δομημένου Περιβάλλοντος και Αρχιτεκτονικού Σχεδιασμού</item>
+        <item>Εφαρμοσμένων Τεχνών</item>
+        <item>Ηλεκτρολογίας, Ηλεκτρονικής και Αυτοματισμού</item>
+        <item>Μηχανολογίας</item>
+        <item>Ναυτιλιακών Επαγγελμάτων</item>
+        <item>Πληροφορικής</item>
+        <item>Υγείας - Πρόνοιας - Ευεξίας</item>
+    </string-array>
+
+    <string-array name="TomisPath">
+        <item>kina</item>
+        <item>geoponias</item>
+        <item>ikonomias</item>
+        <item>domikon</item>
+        <item>texnis</item>
+        <item>ilektroniki</item>
+        <item>mixaniki</item>
+        <item>naftiliaki</item>
+        <item>pliroforiki</item>
+        <item>igias</item>
+    </string-array>
+
+    <string-array name="IdikaMathimata">
+        <item>Χωρις ειδικο μαθημα</item>
+        <item>Ξένη/νες Γλώσσα/σες</item>
+        <item>Ελέυθερω Σχέδιο</item>
+        <item>Ελέυθερω και Γραμμικό Σχέδιο</item>
+        <item>Αρμονία και Έλεγχος Μουσικών Ακουστικών Ικανοτήτων </item>
+        <item>Αθλήματα</item>
+    </string-array>
+
+</resources>

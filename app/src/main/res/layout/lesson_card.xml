@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="20dp"
+    android:scrollbars="vertical"
+    app:cardCornerRadius="20dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/mathima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="start"
+            android:text="@string/mathima"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idrima_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/download_button"
+            app:layout_constraintStart_toEndOf="@+id/mathima"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/type"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/mathima"
+            app:layout_constraintStart_toStartOf="@+id/mathima"
+            app:layout_constraintTop_toTopOf="@+id/title_view" />
+
+        <TextView
+            android:id="@+id/title_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/download_button"
+            app:layout_constraintStart_toEndOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/idrima_view" />
+
+        <TextView
+            android:id="@+id/bash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="start"
+            android:text="@string/year"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/type"
+            app:layout_constraintStart_toStartOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/type" />
+
+        <TextView
+            android:id="@+id/moria_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/download_button"
+            app:layout_constraintStart_toEndOf="@+id/bash"
+            app:layout_constraintTop_toBottomOf="@+id/title_view" />
+
+        <ImageView
+            android:id="@+id/download_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/download"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/circle_shape"
+            android:indeterminate="false"
+            android:max="100"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/download_button"
+            app:layout_constraintEnd_toEndOf="@+id/download_button"
+            app:layout_constraintStart_toStartOf="@+id/download_button"
+            app:layout_constraintTop_toTopOf="@+id/download_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

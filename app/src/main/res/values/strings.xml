@@ -1,0 +1,26 @@
+<resources>
+    <string name="mathimagenikis1">1ο Μάθημα Γενικης</string>
+    <string name="mathimagenikis2">2ο Μάθημα Γενικης</string>
+    <string name="mathimaidikotitas1">1ο Μάθημα Ειδικοτητας</string>
+    <string name="mathimaidikotitas2">2ο Μάθημα Ειδικοτητας</string>
+    <string name="clc">Υπολογισμός</string>
+    <string name="ypologismosepal">Υπολογισμός Μορίων Επαλ</string>
+    <string name="ypgel">Υπολογισμός Μορίων Γελ</string>
+    <string name="mathimage1">1ο Μάθημα</string>
+    <string name="mathimage2">2ο Μάθημα</string>
+    <string name="mathimagel3">3ο Μάθημα</string>
+    <string name="mathimagel4">4ο Μάθημα</string>
+    <string name="mathima">" Μαθημα:"</string>
+    <string name="xronologia">Χρονολογία</string>
+    <string name="typos">Τύπος Σχολείου</string>
+    <string name="search">Αναζήτηση</string>
+    <string name="thema_search">Αναζήτηση Θεμάτων</string>
+    <string name="baseis">Βασεις</string>
+    <string name="type">Τύπος:</string>
+    <string name="year">Χρονια:</string>
+    <string name="download">download</string>
+    <string name="bash">Βαση</string>
+    <string name="tomeas">Τομέας</string>
+
+
+</resources>

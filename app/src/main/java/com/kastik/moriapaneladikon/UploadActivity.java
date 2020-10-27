@@ -29,16 +29,17 @@ public class UploadActivity extends AppCompatActivity {
     final String IdtoIdikotitaReference = "/IdikotitesAnaId";
     final String EpalDataReference = "/EpalData";
     final String GelDataReference = "/GelData";
+    final String BaseisData = "/Themata";
     /*########################################################
     ## Change this value to set Different path in Firestore ##
     ########################################################*/
-    String firestorePath = "Baseis/2020/Test";
-    CollectionReference firestoreRefrence = FirebaseFirestore.getInstance().collection(firestorePath);
+    final String firestorePath = "Baseis/2020/Test";
+    final CollectionReference firestoreRefrence = FirebaseFirestore.getInstance().collection(firestorePath);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.upload_gel);
+        setContentView(R.layout.upload_layout);
 
         final Button startGelUploadButton = findViewById(R.id.start_up_gel_button);
         startGelUploadButton.setOnClickListener(v -> {
@@ -62,7 +63,6 @@ public class UploadActivity extends AppCompatActivity {
                 }
             });
         });
-
 
         final Button startEpalUpoloadButton = findViewById(R.id.start_epal_upload_button);
         startEpalUpoloadButton.setOnClickListener(v -> {
@@ -125,6 +125,38 @@ public class UploadActivity extends AppCompatActivity {
                 }
             });
         });
+
+        final Button startThemataUpload = findViewById(R.id.themataUpload);
+        CollectionReference paok = FirebaseFirestore.getInstance().collection("Themata");
+        startThemataUpload.setOnClickListener(v -> {
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(BaseisData);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot child : snapshot.getChildren()) {
+                        Log.d("MyLog", "Started With child1" + child.getKey());
+                        for (DataSnapshot child2 : child.getChildren()) {
+                            Log.d("MyLog", "Started With child2" + child2.getKey());
+                            for (DataSnapshot child3 : child2.getChildren()) {
+                                Log.d("MyLog", "Started With child3" + child3.getKey());
+                                String extension = child3.child("FileExtension").getValue().toString();
+                                String path = child3.child("Link").getValue().toString();
+                                String LessonName = child3.child("LessonName").getValue().toString();
+                                String SchoolType = child3.child("SchoolType").getValue().toString();
+                                String Year = child3.child("Year").getValue().toString();
+                                paok.document(child.getKey()).collection(child2.getKey()).add(
+                                        new ThemataModel(Year, LessonName, SchoolType, extension, path)).addOnCompleteListener(task -> Log.d("MyLog", "Finished Uploading child1 " + child.getKey() + "child2 " + child2.getKey()));
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        });
     }
 
     private ArrayList<Double> StringToKritiriaIsobathmiasArrayList(@NotNull String string) {
@@ -158,8 +190,7 @@ public class UploadActivity extends AppCompatActivity {
         }
     }
 
-    private @NotNull
-    ArrayList<Integer> PediaToArrayList(String string) {
+    private @NotNull ArrayList<Integer> PediaToArrayList(String string) {
         ArrayList<Integer> Pedio = new ArrayList<>();
         string = string.replace("/", "");
         for (int i = 0; i < string.length(); i++) {
@@ -168,8 +199,7 @@ public class UploadActivity extends AppCompatActivity {
         return Pedio;
     }
 
-    private @NotNull
-    BaseisModel GetGelModel(@NotNull DataSnapshot child) {
+    private @NotNull BaseisModel GetGelModel(@NotNull DataSnapshot child) {
         Log.d("MyLog", "Started with " + child.getKey());
         int ArxikesThesis = StringToInt(Objects.requireNonNull(child.child("ArxikesThesis").getValue()).toString());
         int Epitixontes = StringToInt(Objects.requireNonNull(child.child("Epitixontes").getValue()).toString());
@@ -203,8 +233,7 @@ public class UploadActivity extends AppCompatActivity {
         return new BaseisModel(SchoolId, Idrima, SchoolName, Type, Pedio, ArxikesThesis, ThesisKatopinMetaforas, Epitixontes, moria_protou, kritiria_isobathmias_protou, moria_telefteou, kritiria_isobathmias_telefteou);
     }
 
-    private @NotNull
-    BaseisModel GetEpalModel(@NotNull DataSnapshot child) {
+    private @NotNull BaseisModel GetEpalModel(@NotNull DataSnapshot child) {
         Log.d("MyLog", "Started with " + child.getKey());
         int ArxikesThesis = StringToInt(Objects.requireNonNull(child.child("ArxikesThesis").getValue()).toString());
         int Epitixontes = StringToInt(Objects.requireNonNull(child.child("Epitixontes").getValue()).toString());

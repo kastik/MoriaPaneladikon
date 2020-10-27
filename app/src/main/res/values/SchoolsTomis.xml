@@ -84,4 +84,46 @@
         <item>Αθλήματα</item>
     </string-array>
 
+    <string-array name="ThemataSchools2020">
+        <item>ΓΕΛ Ημερίσια &amp; Εσπερινά Νέο Σύστημα</item>
+        <item>ΓΕΛ Ημερίσια Παλιό Σύστημα</item>
+        <item>ΓΕΛ Εσπερινά Παλιό Σύστημα</item>
+        <item>ΕΠΑ.Λ. Ημερίσια &amp; Εσπερινά"</item>
+        <item>Ειδικα Μαθηματα</item>
+    </string-array>
+
+    <string-array name="ThemataSchoolsPath2020">
+        <item>/Gel_Neo"</item>
+        <item>/Gel_Imerisia_Palio</item>
+        <item>/Gel_Esperina_Palio</item>
+        <item>/Epal</item>
+        <item>/Special</item>
+    </string-array>
+
+    <string-array name="ThemataSchools2019">
+        <item>ΓΕ.Λ. Ημερίσια &amp; Εσπερινά</item>
+        <item>ΕΠΑ.Λ. Ημερίσια &amp; Εσπερινά</item>
+        <item>Ειδικα Μαθηματα</item>
+    </string-array>
+
+    <string-array name="ThemataSchoolsPath2019">
+        <item>/Gel</item>
+        <item>/Epal</item>
+        <item>/Special</item>
+    </string-array>
+
+    <string-array name="ThemataSchools2018">
+        <item>ΓΕ.Λ. Ημερίσια</item>
+        <item>ΓΕ.Λ. Εσπερινά</item>
+        <item>ΕΠΑ.Λ. Ημερίσια &amp; Εσπερινά</item>
+        <item>Ειδικα Μαθηματα</item>
+    </string-array>
+
+    <string-array name="ThemataSchoolsPath2018">
+        <item>/Gel_Imerisia</item>
+        <item>/Gel_Esperina</item>
+        <item>/Epal</item>
+        <item>/Special</item>
+    </string-array>
+
 </resources>

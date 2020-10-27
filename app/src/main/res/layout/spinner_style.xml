@@ -6,4 +6,4 @@
     android:gravity="center"
     android:textColor="#FFFFFF"
     android:textSize="18sp"
-    tools:ignore="RtlHardcoded"></TextView>
+    tools:ignore="RtlHardcoded" />

@@ -18,7 +18,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/paths"></meta-data>
+                android:resource="@xml/paths" />
         </provider>
 
         <activity android:name=".MainActivity">
@@ -32,8 +32,9 @@
         <activity android:name=".ThemataSearch" />
         <activity android:name=".ThemataView" />
         <activity android:name=".BaseisView" />
-        <activity android:name=".UploadGel" />
+        <activity android:name=".UploadActivity" />
         <activity android:name=".BaseisSearch" />
+
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

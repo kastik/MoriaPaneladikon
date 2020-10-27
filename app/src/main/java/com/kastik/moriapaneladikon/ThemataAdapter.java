@@ -62,6 +62,8 @@ public class ThemataAdapter extends FirebaseRecyclerAdapter<ThemataModel, Themat
 
                 DownloadTask.addOnSuccessListener(taskSnapshot -> {
                     holder.downloadIcon.setImageDrawable(getDoneImage());
+                    holder.progressBar.setVisibility(View.INVISIBLE);
+                    holder.downloadIcon.setVisibility(View.VISIBLE);
                     fileOpener(file);
                 }).addOnFailureListener(e -> {
 
@@ -126,9 +128,11 @@ public class ThemataAdapter extends FirebaseRecyclerAdapter<ThemataModel, Themat
     }
 
     static class LeasonViewHolder extends RecyclerView.ViewHolder {
-        TextView LeassonName, SchoolType, Year;
-        ImageView downloadIcon;
-        ProgressBar progressBar;
+        final TextView LeassonName;
+        final TextView SchoolType;
+        final TextView Year;
+        final ImageView downloadIcon;
+        final ProgressBar progressBar;
 
         @SuppressLint("UseCompatLoadingForDrawables")
         public LeasonViewHolder(@NonNull View itemView) {

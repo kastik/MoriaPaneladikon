@@ -19,8 +19,10 @@
     <string name="type">Τύπος:</string>
     <string name="year">Χρονια:</string>
     <string name="download">download</string>
-    <string name="bash">Βαση</string>
-    <string name="tomeas">Τομέας</string>
+    <string name="start_gel_upload" translatable="false">Start Gel Upload</string>
+    <string name="start_epal_upoload" translatable="false">Start Epal Upoload</string>
+    <string name="start_idikotita" translatable="false">Start Idikotita</string>
+    <string name="start_themata_upload" translatable="false">Start Themata Upload</string>
 
 
 </resources>

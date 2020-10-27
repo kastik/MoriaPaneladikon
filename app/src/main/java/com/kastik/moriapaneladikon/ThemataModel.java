@@ -9,11 +9,12 @@ public class ThemataModel {
     public ThemataModel() {
     }
 
-    public ThemataModel(String Year, String LessonName, String SchoolType) {
+    public ThemataModel(String Year, String LessonName, String SchoolType, String FileExtension, String Link) {
         this.SchoolType = SchoolType;
         this.LessonName = LessonName;
         this.Year = Year;
         this.FileExtension = FileExtension;
+        this.Link = Link;
     }
 
     public String getLink() {

@@ -5,17 +5,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +22,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Intent intent;
     private InterstitialAd mInterstitialAd;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +36,9 @@ public class MainActivity extends AppCompatActivity {
         final Button themata = findViewById(R.id.anazitisi_thematon_button);
         final Button upload_gel = findViewById(R.id.Launch_Gel_Upload);
 
-        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-            List<AuthUI.IdpConfig> providers = Arrays.asList(
-                    new AuthUI.IdpConfig.EmailBuilder().build(),
-                    new AuthUI.IdpConfig.GoogleBuilder().build());
-
-            startActivityForResult(
-                    AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setAvailableProviders(providers)
-                            .build(), 1);
+        if (FirebaseAuth.getInstance().getCurrentUser() == null && this.getApplicationInfo().packageName.contains(".debug")) {
+            logIn();
         }
-
-
-// Create and launch sign-in intent
-
 
         ypEpal.setOnClickListener(view -> {
             intent = new Intent(this, YpologismosEpal.class);
@@ -97,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
-            public void onAdFailedToLoad(LoadAdError loadAdError) {
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                 Log.d("adFailedToLoad", "domain: " + loadAdError.getDomain() + " code: " + loadAdError.getCode() + " message: " + loadAdError.getMessage());
             }
 
@@ -118,23 +104,18 @@ public class MainActivity extends AppCompatActivity {
         MobileAds.initialize(this);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private void logIn() {
+        FirebaseAuth.getInstance();
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            List<AuthUI.IdpConfig> providers = Arrays.asList(
+                    new AuthUI.IdpConfig.EmailBuilder().build(),
+                    new AuthUI.IdpConfig.GoogleBuilder().build());
 
-        if (requestCode == 1) {
-            IdpResponse response = IdpResponse.fromResultIntent(data);
-
-            if (resultCode == RESULT_OK) {
-                // Successfully signed in
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                // ...
-            } else {
-                // Sign in failed. If response is null the user canceled the
-                // sign-in flow using the back button. Otherwise check
-                // response.getError().getErrorCode() and handle the error.
-                // ...
-            }
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(providers)
+                            .build(), 1);
         }
     }
 

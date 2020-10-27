@@ -11,14 +11,9 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ThemataSearch extends AppCompatActivity {
-    private final List<String> availableSchools = new ArrayList<>();
-    private final List<String> pathToSchool = new ArrayList<>();
-    private String SchoolPath = "";
-    private String YearPath = "";
+    private String SchoolPath;
+    private String Year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,66 +26,39 @@ public class ThemataSearch extends AppCompatActivity {
 
         Context context = this;
 
-        xroniaSpinner.setAdapter(new ArrayAdapter<>(this, R.layout.spinner_style, new String[]{"2020", "2019", "2018", "2017", "2016"}));
+        xroniaSpinner.setAdapter(new ArrayAdapter<>(this, R.layout.spinner_style, getResources().getStringArray(R.array.AvailableYears)));
         xroniaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                pathToSchool.clear();
-                availableSchools.clear();
-                SchoolPath = "";
                 switch (position) {
                     case 0: {
-                        YearPath = "2020";
-                        availableSchools.add("ΓΕΛ Ημερίσια & Εσπερινά Νέο Σύστημα");
-                        availableSchools.add("ΓΕΛ Ημερίσια Παλαιό Σύστημα");
-                        availableSchools.add("ΓΕΛ Εσπερινά Παλαιό Σύστημα");
-                        availableSchools.add("ΕΠΑ.Λ. Ημερίσια & Εσπερινά");
-                        availableSchools.add("Ειδικα Μαθηματα");
-                        pathToSchool.add("/Gel_Neo");
-                        pathToSchool.add("/Gel_Imerisia_Palio");
-                        pathToSchool.add("/Gel_Esperina_Palio");
-                        pathToSchool.add("/Epal");
-                        pathToSchool.add("/Special");
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, availableSchools);
-                        schoolTypeSpinner.setAdapter(paok);
+                        Year = "2020";
+                        ArrayAdapter<? extends String> SchoolsAdapter = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchools2020));
+                        schoolTypeSpinner.setAdapter(SchoolsAdapter);
                         break;
                     }
 
                     case 1: {
-                        YearPath = "2019";
-                        availableSchools.add("ΓΕ.Λ. Ημερίσια & Εσπερινά");
-                        availableSchools.add("ΕΠΑ.Λ. Ημερίσια & Εσπερινά");
-                        availableSchools.add("Ειδικα Μαθηματα");
-                        pathToSchool.add("/Gel");
-                        pathToSchool.add("/Epal");
-                        pathToSchool.add("/Special");
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, availableSchools);
+                        Year = "2019";
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchools2019));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }
 
                     case 2: {
-                        YearPath = "2018";
-                        availableSchools.add("ΓΕ.Λ. Ημερίσια");
-                        availableSchools.add("ΓΕ.Λ. Εσπερινά");
-                        availableSchools.add("ΕΠΑ.Λ. Ημερίσια & Εσπερινά");
-                        availableSchools.add("Ειδικα Μαθηματα");
-                        pathToSchool.add("/Gel_Imerisia");
-                        pathToSchool.add("/Gel_Esperina");
-                        pathToSchool.add("/Epal");
-                        pathToSchool.add("/Special");
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(view.getContext(), R.layout.spinner_style, availableSchools);
+                        Year = "2018";
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(view.getContext(), R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchools2018));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }
                     case 3: {
                         //TODO
-                        YearPath = "2017";
+                        Year = "2017";
                         break;
                     }
                     case 4: {
                         //TODO
-                        YearPath = "2016";
+                        Year = "2016";
                         break;
                     }
                 }
@@ -104,7 +72,13 @@ public class ThemataSearch extends AppCompatActivity {
         schoolTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                SchoolPath = pathToSchool.get(position);
+                if (Year.equals("2020")) {
+                    SchoolPath = getResources().getStringArray(R.array.ThemataSchoolsPath2020)[position];
+                } else if (Year.equals("2019")) {
+                    SchoolPath = getResources().getStringArray(R.array.ThemataSchoolsPath2019)[position];
+                } else {
+                    SchoolPath = getResources().getStringArray(R.array.ThemataSchoolsPath2018)[position];
+                }
             }
 
             @Override
@@ -115,7 +89,7 @@ public class ThemataSearch extends AppCompatActivity {
 
         searchButton.setOnClickListener(view -> {
             Intent themataViewActivity = new Intent(view.getContext(), ThemataView.class);
-            themataViewActivity.putExtra("path", "Themata/" + YearPath + SchoolPath);
+            themataViewActivity.putExtra("path", "Themata/" + Year + SchoolPath);
             startActivity(themataViewActivity);
 
         });

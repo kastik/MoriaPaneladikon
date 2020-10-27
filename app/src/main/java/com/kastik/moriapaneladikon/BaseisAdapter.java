@@ -33,7 +33,11 @@ public class BaseisAdapter extends FirestoreRecyclerAdapter<BaseisModel, BaseisA
     }
 
     static class BaseisViewHolder extends RecyclerView.ViewHolder {
-        TextView IdrimaView, TitlosSpoudon, BaseView, CityView, textView;
+        final TextView IdrimaView;
+        final TextView TitlosSpoudon;
+        final TextView BaseView;
+        final TextView CityView;
+        final TextView textView;
 
         public BaseisViewHolder(@NonNull View itemView) {
             super(itemView);

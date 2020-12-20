@@ -33,7 +33,7 @@ public class ThemataSearch extends AppCompatActivity {
                 switch (position) {
                     case 0: {
                         Year = "2020";
-                        ArrayAdapter<? extends String> SchoolsAdapter = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchools2020));
+                        ArrayAdapter<? extends String> SchoolsAdapter = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchoolsToShow2020));
                         schoolTypeSpinner.setAdapter(SchoolsAdapter);
                         break;
                     }

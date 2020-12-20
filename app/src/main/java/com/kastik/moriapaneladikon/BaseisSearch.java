@@ -38,7 +38,7 @@ public class BaseisSearch extends AppCompatActivity {
                 Year = getResources().getStringArray(R.array.AvailableYears)[position];
                 switch (position) {
                     case 0: {
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.Schools2020));
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.BaseisSchoolsShow2020));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }
@@ -61,7 +61,7 @@ public class BaseisSearch extends AppCompatActivity {
         schoolTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                SchoolType = getResources().getStringArray(R.array.Paths2020)[position];
+                SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2020)[position];
                 switch (position) {
                     case 0:
                     case 1:
@@ -74,7 +74,6 @@ public class BaseisSearch extends AppCompatActivity {
                     }
                     case 4:
                     case 5: {
-                        //TODO EPAL
                         ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.TomisToShow));
                         idikotitaSpinner.setAdapter(paoka);
                         isEpal = true;

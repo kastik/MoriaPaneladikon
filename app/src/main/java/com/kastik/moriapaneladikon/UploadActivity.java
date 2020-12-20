@@ -19,6 +19,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UploadActivity extends AppCompatActivity {
+
     final String IdtoIdikotitaReference = "/IdikotitesAnaId";
     final String EpalDataReference = "/EpalData";
     final String GelDataReference = "/GelData";
@@ -33,8 +36,11 @@ public class UploadActivity extends AppCompatActivity {
     /*########################################################
     ## Change this value to set Different path in Firestore ##
     ########################################################*/
-    final String firestorePath = "Baseis/2020/Test";
+    final String firestorePath = "Baseis/2020/Epal_2019_10%";
+    final FieldPath schoolIdPath = FieldPath.of("schoolId");
+    final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(IdtoIdikotitaReference);
     final CollectionReference firestoreRefrence = FirebaseFirestore.getInstance().collection(firestorePath);
+    DataSnapshot databaseSnapshot;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,8 +57,11 @@ public class UploadActivity extends AppCompatActivity {
                     for (DataSnapshot child : snapshot.getChildren()) {
                         BaseisModel model = GetGelModel(child);
                         Log.d("MyLog", "done constructing model");
-                        firestoreRefrence.add(model).addOnCompleteListener(task ->
-                                Log.d("MyLog", "done uploading model " + child.getKey()));
+                        firestoreRefrence.add(model)
+                                .addOnSuccessListener(documentReference ->
+                                        Log.d("MyLog", "done uploading model " + child.getKey()))
+                                .addOnFailureListener(e ->
+                                        Log.d("MyLog", "######Failed With Exception " + e.getMessage()));
                     }
                     Log.d("MyLog", "################## Finished Uploading Of All Models##################");
                 }
@@ -89,38 +98,36 @@ public class UploadActivity extends AppCompatActivity {
 
         final Button startIdikotitesUpoload = findViewById(R.id.start_idikotita_upoload_button);
         startIdikotitesUpoload.setOnClickListener(v -> {
-            CollectionReference firestoreRefrence = FirebaseFirestore.getInstance().collection(firestorePath);
+
+
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Log.d("MyLog", "Finished Getting realtimeDatabase Data");
+                    databaseSnapshot = snapshot;
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            }); //GET SNAPSHOT
             firestoreRefrence.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    Log.d("MyLog", "Finished Getting Firestore data");
-                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(IdtoIdikotitaReference);
-                        FieldPath fieldPath = FieldPath.of("schoolId");
-                        String firestoreId = String.valueOf(documentSnapshot.get(fieldPath));
-                        Log.d("MyLog", "firestoreId " + firestoreId);
-                        databaseReference.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Log.d("MyLog", "Finished Getting realtimeDatabase Data");
-                                for (DataSnapshot child : snapshot.getChildren()) {
-                                    String databaseId = String.valueOf(child.child("id").getValue());
-                                    ArrayList<String> databaseSector = IdikotitaToArrayList(String.valueOf(child.child("sector").getValue()));
-                                    Log.d("MyLog", "databaseId " + databaseId);
-                                    Log.d("Mylog", "databaseSector " + databaseSector);
-                                    if (databaseId.equals(firestoreId)) {
-                                        if (databaseSector != null) {
-                                            documentSnapshot.getReference().update("Idikotita", databaseSector);
-                                            Log.d("MyLog", "Finished Updating temp " + snapshot.getKey());
-                                        }
-                                    }
-                                }
+                Log.d("MyLog", "Finished Getting Firestore Data");
+                for (QueryDocumentSnapshot firestoreSnapshot : task.getResult()) {
+                    String firestoreSchoolId = String.valueOf(firestoreSnapshot.get(schoolIdPath));
+                    Log.d("MyLog", "firestoreSchoolId " + firestoreSchoolId);
+                    for (DataSnapshot child : databaseSnapshot.getChildren()) {
+                        String databaseSchoolId = String.valueOf(child.child("id").getValue());
+                        ArrayList<String> databaseSector = IdikotitaToArrayList(String.valueOf(child.child("sector").getValue()));
+                        Log.d("MyLog", "databaseSchoolId " + databaseSchoolId);
+                        Log.d("Mylog", "databaseSector " + databaseSector);
+                        if (databaseSchoolId.equals(firestoreSchoolId)) {
+                            if (databaseSector.get(0).equals("null") || databaseSector == null) {
+                                firestoreSnapshot.getReference().update("Idikotita", databaseSector).
+                                        addOnCompleteListener(task1 -> Log.d("MyLog", "Finished Updating temp " + databaseSnapshot.getKey()));
                             }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                        }
                     }
                 }
             });
@@ -157,9 +164,32 @@ public class UploadActivity extends AppCompatActivity {
                 }
             });
         });
+
+        final Button createStorageTemplateButton = findViewById(R.id.storageTemplateButton);
+        CollectionReference ref = FirebaseFirestore.getInstance().collection("Themata").document("2019").collection("Gel_Imerisia");
+        createStorageTemplateButton.setOnClickListener(v -> {
+            Log.d("MyLog", "Mpike onClick");
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference("/2019/Gel_Esperina");
+            storageReference.listAll().addOnSuccessListener(listResult -> {
+                Log.d("MyLog", "teliose listAll()");
+                for (StorageReference item : listResult.getPrefixes()) {
+                    Log.d("MyLog", item.toString());
+                    ref.document(item.getName()).update(
+                            "fileExtension", String.valueOf(item)
+                            , "lessonName", item.getName().replace("gs://ypologismosmorion.appspot.com/", ""),
+                            "link", item.child("link").getName(),
+                            "schoolType", item.child("schoolType").getName(),
+                            "year", item.child("year").getName()
+                    );
+                }
+            }).addOnFailureListener(e -> Log.d("MyLog", e.getMessage()));
+        });
     }
 
     private ArrayList<Double> StringToKritiriaIsobathmiasArrayList(@NotNull String string) {
+        string = string.replace("paok", "");
+        string = string.replace("/", "");
+        string = string.replace(",", ".");
         StringBuilder temp = new StringBuilder();
         ArrayList<Double> finalValue = new ArrayList<>();
         if (!string.equals(temp.toString())) {
@@ -183,6 +213,7 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     private int StringToInt(@NotNull String string) {
+        string = string.replace("paok", "");
         if (!string.equals("")) {
             return Integer.parseInt(string);
         } else {
@@ -191,6 +222,7 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     private @NotNull ArrayList<Integer> PediaToArrayList(String string) {
+        string = string.replace("paok", "");
         ArrayList<Integer> Pedio = new ArrayList<>();
         string = string.replace("/", "");
         for (int i = 0; i < string.length(); i++) {
@@ -201,27 +233,15 @@ public class UploadActivity extends AppCompatActivity {
 
     private @NotNull BaseisModel GetGelModel(@NotNull DataSnapshot child) {
         Log.d("MyLog", "Started with " + child.getKey());
-        int ArxikesThesis = StringToInt(Objects.requireNonNull(child.child("ArxikesThesis").getValue()).toString());
-        int Epitixontes = StringToInt(Objects.requireNonNull(child.child("Epitixontes").getValue()).toString());
-        String Idrima = Objects.requireNonNull(child.child("Idrima").getValue()).toString();
+        int ArxikesThesis = StringToInt(child.child("ArxikesThesis").getValue().toString());
+        int Epitixontes = StringToInt(child.child("Epitixontes").getValue().toString());
+        String Idrima = child.child("Idrima").getValue().toString();
 
-        ArrayList<Integer> Pedio;
-        String PedioTemp = Objects.requireNonNull(child.child("Pedio").getValue()).toString();
-        Pedio = PediaToArrayList(PedioTemp);
+        ArrayList<Integer> Pedio = PediaToArrayList(child.child("Pedio").getValue().toString());
 
 
-        ArrayList<Double> kritiria_isobathmias_protou;
-        String kritiria_isobathmias_protou_temp = Objects.requireNonNull(child.child("KritiriaIsobathmiasProtou").getValue()).toString();
-        kritiria_isobathmias_protou_temp = kritiria_isobathmias_protou_temp.replace("/", "");
-        kritiria_isobathmias_protou_temp = kritiria_isobathmias_protou_temp.replace(",", ".");
-        kritiria_isobathmias_protou = StringToKritiriaIsobathmiasArrayList(kritiria_isobathmias_protou_temp);
-
-        ArrayList<Double> kritiria_isobathmias_telefteou;
-        String kritiria_isobathmias_telefteou_temp = Objects.requireNonNull(child.child("KritiriaIsobathmiasTelefteou").getValue()).toString();
-        kritiria_isobathmias_telefteou_temp = kritiria_isobathmias_telefteou_temp.replace("/", "");
-        kritiria_isobathmias_telefteou_temp = kritiria_isobathmias_telefteou_temp.replace(",", ".");
-        kritiria_isobathmias_telefteou = StringToKritiriaIsobathmiasArrayList(kritiria_isobathmias_telefteou_temp);
-
+        ArrayList<Double> kritiria_isobathmias_protou = StringToKritiriaIsobathmiasArrayList(child.child("KritiriaIsobathmiasProtou").getValue().toString());
+        ArrayList<Double> kritiria_isobathmias_telefteou = StringToKritiriaIsobathmiasArrayList(child.child("KritiriaIsobathmiasTelefteou").getValue().toString());
 
         int SchoolId = StringToInt(Objects.requireNonNull(child.child("SchoolId").getValue()).toString());
         String SchoolName = Objects.requireNonNull(child.child("SchoolName").getValue()).toString();
@@ -236,20 +256,11 @@ public class UploadActivity extends AppCompatActivity {
     private @NotNull BaseisModel GetEpalModel(@NotNull DataSnapshot child) {
         Log.d("MyLog", "Started with " + child.getKey());
         int ArxikesThesis = StringToInt(Objects.requireNonNull(child.child("ArxikesThesis").getValue()).toString());
-        int Epitixontes = StringToInt(Objects.requireNonNull(child.child("Epitixontes").getValue()).toString());
+        int Epitixontes = StringToInt(child.child("Epitixontes").getValue().toString());
         String Idrima = Objects.requireNonNull(child.child("Idrima").getValue()).toString();
 
-        ArrayList<Double> kritiria_isobathmias_protou;
-        String kritiria_isobathmias_protou_temp = Objects.requireNonNull(child.child("KritiriaIsobathmiasProtou").getValue()).toString();
-        kritiria_isobathmias_protou_temp = kritiria_isobathmias_protou_temp.replace("/", "");
-        kritiria_isobathmias_protou_temp = kritiria_isobathmias_protou_temp.replace(",", ".");
-        kritiria_isobathmias_protou = StringToKritiriaIsobathmiasArrayList(kritiria_isobathmias_protou_temp);
-
-        ArrayList<Double> kritiria_isobathmias_telefteou;
-        String kritiria_isobathmias_telefteou_temp = Objects.requireNonNull(child.child("KritiriaIsobatmiasTelefteou").getValue()).toString();
-        kritiria_isobathmias_telefteou_temp = kritiria_isobathmias_telefteou_temp.replace("/", "");
-        kritiria_isobathmias_telefteou_temp = kritiria_isobathmias_telefteou_temp.replace(",", ".");
-        kritiria_isobathmias_telefteou = StringToKritiriaIsobathmiasArrayList(kritiria_isobathmias_telefteou_temp);
+        ArrayList<Double> kritiria_isobathmias_protou = StringToKritiriaIsobathmiasArrayList(child.child("KritiriaIsobathmiasProtou").getValue().toString());
+        ArrayList<Double> kritiria_isobathmias_telefteou = StringToKritiriaIsobathmiasArrayList(child.child("KritiriaIsobathmiasTelefteou").getValue().toString());
 
         int SchoolId = StringToInt(Objects.requireNonNull(child.child("SchoolId").getValue()).toString());
         String SchoolName = Objects.requireNonNull(child.child("SchoolName").getValue()).toString();

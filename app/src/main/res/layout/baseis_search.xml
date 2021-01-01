@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/themataYearTextView"
+        android:id="@+id/baseisYearTextView"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -19,16 +19,16 @@
         app:layout_constraintVertical_bias="0.125" />
 
     <Spinner
-        android:id="@+id/themataYearSpinner"
+        android:id="@+id/baseisYearSpinner"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:spinnerMode="dialog"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/themataYearTextView"
-        app:layout_constraintStart_toStartOf="@+id/themataYearTextView"
-        app:layout_constraintTop_toBottomOf="@+id/themataYearTextView" />
+        app:layout_constraintEnd_toEndOf="@+id/baseisYearTextView"
+        app:layout_constraintStart_toStartOf="@+id/baseisYearTextView"
+        app:layout_constraintTop_toBottomOf="@+id/baseisYearTextView" />
 
     <TextView
         android:id="@+id/baseisSchoolTypeTextView"
@@ -39,9 +39,9 @@
         android:text="@string/typos"
         android:textSize="24sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/themataYearSpinner"
-        app:layout_constraintStart_toStartOf="@+id/themataYearSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/themataYearSpinner" />
+        app:layout_constraintEnd_toEndOf="@+id/baseisYearSpinner"
+        app:layout_constraintStart_toStartOf="@+id/baseisYearSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/baseisYearSpinner" />
 
     <Spinner
         android:id="@+id/baseisSchoolTypeSpinner"
@@ -49,7 +49,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:gravity="center"
-        android:spinnerMode="dropdown"
+        android:spinnerMode="dialog"
         android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/baseisSchoolTypeTextView"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/baseisSchoolTypeTextView" />
 
     <TextView
-        android:id="@+id/themataSchoolTypeTextView"
+        android:id="@+id/baseisIdikotitaPedioTextView"
         style="@android:style/Widget.DeviceDefault.Light.TextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -72,17 +72,18 @@
         app:layout_constraintTop_toBottomOf="@+id/baseisSchoolTypeSpinner" />
 
     <Spinner
-        android:id="@+id/themataSchoolTypeSpinner"
+        android:id="@+id/baseisIdikotitaPedioSpinner"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/themataSchoolTypeTextView"
-        app:layout_constraintStart_toStartOf="@+id/themataSchoolTypeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/themataSchoolTypeTextView" />
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="@+id/baseisIdikotitaPedioTextView"
+        app:layout_constraintStart_toStartOf="@+id/baseisIdikotitaPedioTextView"
+        app:layout_constraintTop_toBottomOf="@+id/baseisIdikotitaPedioTextView" />
 
     <Button
-        android:id="@+id/themataSearchButton"
+        android:id="@+id/baseisSearchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
@@ -90,6 +91,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/themataSchoolTypeSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/baseisIdikotitaPedioSpinner"
         app:layout_constraintVertical_bias="0.26999998" />
 </androidx.constraintlayout.widget.ConstraintLayout>

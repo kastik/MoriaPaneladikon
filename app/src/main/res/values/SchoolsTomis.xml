@@ -20,27 +20,27 @@
     </integer-array>
     <string-array name="TomisToShow">
         <item>Κοινά</item>
-        <item>Γεωπονίας, Τροφίμων και Περιβάλλοντος</item>
-        <item>Διοίκησης και Οικονομίας</item>
-        <item> Δομικών Έργων, Δομημένου Περιβάλλοντος και Αρχιτεκτονικού Σχεδιασμού</item>
-        <item>Εφαρμοσμένων Τεχνών</item>
-        <item>Ηλεκτρολογίας, Ηλεκτρονικής και Αυτοματισμού</item>
-        <item>Μηχανολογίας</item>
-        <item>Ναυτιλιακών Επαγγελμάτων</item>
         <item>Πληροφορικής</item>
+        <item>Μηχανολογίας</item>
+        <item>Εφαρμοσμένων Τεχνών</item>
+        <item>Διοίκησης και Οικονομίας</item>
+        <item>Ναυτιλιακών Επαγγελμάτων</item>
         <item>Υγείας - Πρόνοιας - Ευεξίας</item>
+        <item>Γεωπονίας, Τροφίμων και Περιβάλλοντος</item>
+        <item>Ηλεκτρολογίας, Ηλεκτρονικής και Αυτοματισμού</item>
+        <item> Δομικών Έργων, Δομημένου Περιβάλλοντος και Αρχιτεκτονικού Σχεδιασμού</item>
     </string-array>
     <string-array name="TomisPath">
         <item>kina</item>
-        <item>geoponias</item>
-        <item>ikonomias</item>
-        <item>domikon</item>
-        <item>texnis</item>
-        <item>ilektroniki</item>
-        <item>mixaniki</item>
-        <item>naftiliaki</item>
         <item>pliroforiki</item>
+        <item>mixaniki</item>
+        <item>texnis</item>
+        <item>ikonomias</item>
+        <item>naftiliaki</item>
         <item>igias</item>
+        <item>geoponias</item>
+        <item>ilektroniki</item>
+        <item>domikon</item>
     </string-array>
     <string-array name="IdikaMathimata">
         <item>Χωρις ειδικο μαθημα</item>

@@ -23,7 +23,7 @@
             app:layout_constraintEnd_toStartOf="@+id/moria_view"
             app:layout_constraintStart_toStartOf="@+id/title_view"
             app:layout_constraintTop_toBottomOf="@+id/title_view"
-            tools:text="ΑΠΘ fdgdfgdfgdfgdfgdfgdfgdfgdfg" />
+            tools:text="ΑΠΘ" />
 
         <TextView
             android:id="@+id/title_view"

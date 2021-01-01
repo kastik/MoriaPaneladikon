@@ -26,28 +26,28 @@ public class ThemataSearch extends AppCompatActivity {
 
         Context context = this;
 
-        xroniaSpinner.setAdapter(new ArrayAdapter<>(this, R.layout.spinner_style, getResources().getStringArray(R.array.AvailableYears)));
+        xroniaSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.AvailableYears)));
         xroniaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position) {
                     case 0: {
                         Year = "2020";
-                        ArrayAdapter<? extends String> SchoolsAdapter = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchoolsToShow2020));
+                        ArrayAdapter<? extends String> SchoolsAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.ThemataSchoolsToShow2020));
                         schoolTypeSpinner.setAdapter(SchoolsAdapter);
                         break;
                     }
 
                     case 1: {
                         Year = "2019";
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchools2019));
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.ThemataSchools2019));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }
 
                     case 2: {
                         Year = "2018";
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(view.getContext(), R.layout.spinner_style, getResources().getStringArray(R.array.ThemataSchools2018));
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.ThemataSchools2018));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }

@@ -25,10 +25,10 @@ public class BaseisSearch extends AppCompatActivity {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.baseis_search);
 
-        final Spinner xroniaSpinner = findViewById(R.id.themataYearSpinner);
+        final Spinner xroniaSpinner = findViewById(R.id.baseisYearSpinner);
         final Spinner schoolTypeSpinner = findViewById(R.id.baseisSchoolTypeSpinner);
-        final Spinner idikotitaSpinner = findViewById(R.id.themataSchoolTypeSpinner);
-        final Button searchButton = findViewById(R.id.themataSearchButton);
+        final Spinner idikotitaSpinner = findViewById(R.id.baseisIdikotitaPedioSpinner);
+        final Button searchButton = findViewById(R.id.baseisSearchButton);
 
         Context context = this;
         xroniaSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.AvailableYears)));
@@ -67,14 +67,14 @@ public class BaseisSearch extends AppCompatActivity {
                     case 1:
                     case 2:
                     case 3: {
-                        ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.PediaToShow));
+                        ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.PediaToShow));
                         idikotitaSpinner.setAdapter(paoka);
                         isEpal = false;
                         break;
                     }
                     case 4:
                     case 5: {
-                        ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.TomisToShow));
+                        ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.TomisToShow));
                         idikotitaSpinner.setAdapter(paoka);
                         isEpal = true;
                         break;

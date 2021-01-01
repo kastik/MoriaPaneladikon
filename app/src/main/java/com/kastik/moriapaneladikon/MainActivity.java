@@ -3,6 +3,7 @@ package com.kastik.moriapaneladikon;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -28,17 +29,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InterstitialAdInit();
-
+        logIn();
 
         final Button baseis = findViewById(R.id.anazitisi_baseon_button);
         final Button ypEpal = findViewById(R.id.ypologismos_epal_button);
         final Button ypGel = findViewById(R.id.ypologismos_gel_buuton);
         final Button themata = findViewById(R.id.anazitisi_thematon_button);
         final Button upload_gel = findViewById(R.id.Launch_Gel_Upload);
-
-        if (FirebaseAuth.getInstance().getCurrentUser() == null && this.getApplicationInfo().packageName.contains(".debug")) {
-            logIn();
-        }
 
         ypEpal.setOnClickListener(view -> {
             intent = new Intent(this, YpologismosEpal.class);
@@ -67,10 +64,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        upload_gel.setOnClickListener(v -> {
-            intent = new Intent(this, UploadActivity.class);
-            startActivity(intent);
-        });
+        if (getApplicationInfo().packageName.contains(".debug")) {
+            upload_gel.setVisibility(View.VISIBLE);
+            upload_gel.setOnClickListener(v -> {
+                intent = new Intent(this, UploadActivity.class);
+                startActivity(intent);
+            });
+        }
 
         baseis.setOnClickListener(view -> {
             intent = new Intent(this, BaseisSearch.class);
@@ -105,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logIn() {
-        FirebaseAuth.getInstance();
-        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+        if (FirebaseAuth.getInstance().getCurrentUser() == null && this.getApplicationInfo().packageName.contains(".debug")) {
             List<AuthUI.IdpConfig> providers = Arrays.asList(
                     new AuthUI.IdpConfig.EmailBuilder().build(),
                     new AuthUI.IdpConfig.GoogleBuilder().build());

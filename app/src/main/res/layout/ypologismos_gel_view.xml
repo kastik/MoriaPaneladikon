@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/gelSpecialLessonEditText3" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/GelSpecialLessonSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -87,9 +87,9 @@
             android:importantForAutofill="no"
             android:inputType="number"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/spinner"
-            app:layout_constraintStart_toStartOf="@+id/spinner"
-            app:layout_constraintTop_toBottomOf="@+id/spinner"
+            app:layout_constraintEnd_toEndOf="@+id/GelSpecialLessonSpinner"
+            app:layout_constraintStart_toStartOf="@+id/GelSpecialLessonSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/GelSpecialLessonSpinner"
             tools:ignore="LabelFor" />
 
         <EditText

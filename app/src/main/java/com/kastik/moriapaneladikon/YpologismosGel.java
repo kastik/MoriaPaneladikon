@@ -21,7 +21,7 @@ public class YpologismosGel extends AppCompatActivity {
         final EditText specialLessonEditText1 = findViewById(R.id.gelSpecialLessonEditText1);
         final EditText specialLessonEditText2 = findViewById(R.id.gelSpecialLessonEditText2);
         final EditText specialLessonEditText3 = findViewById(R.id.gelSpecialLessonEditText3);
-        final Spinner dropdown = findViewById(R.id.spinner);
+        final Spinner dropdown = findViewById(R.id.GelSpecialLessonSpinner);
 
         calcButton.setOnClickListener(view -> {
             double bathmos = calc(dropdown.getSelectedItemPosition());

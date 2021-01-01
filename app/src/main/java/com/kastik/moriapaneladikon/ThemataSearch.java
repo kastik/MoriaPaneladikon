@@ -20,9 +20,9 @@ public class ThemataSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.themata_search);
 
-        final Spinner xroniaSpinner = findViewById(R.id.xronologiaSpinner);
-        final Spinner schoolTypeSpinner = findViewById(R.id.idikotitaSpinner);
-        final Button searchButton = findViewById(R.id.searchbutton);
+        final Spinner xroniaSpinner = findViewById(R.id.themataYearSpinner);
+        final Spinner schoolTypeSpinner = findViewById(R.id.themataSchoolTypeSpinner);
+        final Button searchButton = findViewById(R.id.themataSearchButton);
 
         Context context = this;
 

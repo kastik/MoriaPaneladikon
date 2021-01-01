@@ -25,10 +25,10 @@ public class BaseisSearch extends AppCompatActivity {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.baseis_search);
 
-        final Spinner xroniaSpinner = findViewById(R.id.xronologiaSpinner);
-        final Spinner schoolTypeSpinner = findViewById(R.id.schoolTypeSpinner);
-        final Spinner idikotitaSpinner = findViewById(R.id.idikotitaSpinner);
-        final Button searchButton = findViewById(R.id.searchbutton);
+        final Spinner xroniaSpinner = findViewById(R.id.themataYearSpinner);
+        final Spinner schoolTypeSpinner = findViewById(R.id.baseisSchoolTypeSpinner);
+        final Spinner idikotitaSpinner = findViewById(R.id.themataSchoolTypeSpinner);
+        final Button searchButton = findViewById(R.id.themataSearchButton);
 
         Context context = this;
         xroniaSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.AvailableYears)));

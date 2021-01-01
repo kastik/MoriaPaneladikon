@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/xronologiaView"
+        android:id="@+id/themataYearTextView"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -19,19 +19,19 @@
         app:layout_constraintVertical_bias="0.125" />
 
     <Spinner
-        android:id="@+id/xronologiaSpinner"
+        android:id="@+id/themataYearSpinner"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:spinnerMode="dialog"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/xronologiaView"
-        app:layout_constraintStart_toStartOf="@+id/xronologiaView"
-        app:layout_constraintTop_toBottomOf="@+id/xronologiaView" />
+        app:layout_constraintEnd_toEndOf="@+id/themataYearTextView"
+        app:layout_constraintStart_toStartOf="@+id/themataYearTextView"
+        app:layout_constraintTop_toBottomOf="@+id/themataYearTextView" />
 
     <TextView
-        android:id="@+id/schoolTypeView"
+        android:id="@+id/baseisSchoolTypeTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -39,12 +39,12 @@
         android:text="@string/typos"
         android:textSize="24sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/xronologiaSpinner"
-        app:layout_constraintStart_toStartOf="@+id/xronologiaSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/xronologiaSpinner" />
+        app:layout_constraintEnd_toEndOf="@+id/themataYearSpinner"
+        app:layout_constraintStart_toStartOf="@+id/themataYearSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/themataYearSpinner" />
 
     <Spinner
-        android:id="@+id/schoolTypeSpinner"
+        android:id="@+id/baseisSchoolTypeSpinner"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
@@ -52,13 +52,13 @@
         android:spinnerMode="dropdown"
         android:textAlignment="center"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/schoolTypeView"
+        app:layout_constraintEnd_toEndOf="@+id/baseisSchoolTypeTextView"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/schoolTypeView"
-        app:layout_constraintTop_toBottomOf="@+id/schoolTypeView" />
+        app:layout_constraintStart_toStartOf="@+id/baseisSchoolTypeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/baseisSchoolTypeTextView" />
 
     <TextView
-        android:id="@+id/idikotitaView"
+        android:id="@+id/themataSchoolTypeTextView"
         style="@android:style/Widget.DeviceDefault.Light.TextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,23 +66,23 @@
         android:gravity="center"
         android:textSize="24sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/schoolTypeSpinner"
+        app:layout_constraintEnd_toEndOf="@+id/baseisSchoolTypeSpinner"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/schoolTypeSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/schoolTypeSpinner" />
+        app:layout_constraintStart_toStartOf="@+id/baseisSchoolTypeSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/baseisSchoolTypeSpinner" />
 
     <Spinner
-        android:id="@+id/idikotitaSpinner"
+        android:id="@+id/themataSchoolTypeSpinner"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/idikotitaView"
-        app:layout_constraintStart_toStartOf="@+id/idikotitaView"
-        app:layout_constraintTop_toBottomOf="@+id/idikotitaView" />
+        app:layout_constraintEnd_toEndOf="@+id/themataSchoolTypeTextView"
+        app:layout_constraintStart_toStartOf="@+id/themataSchoolTypeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/themataSchoolTypeTextView" />
 
     <Button
-        android:id="@+id/searchbutton"
+        android:id="@+id/themataSearchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
@@ -90,6 +90,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idikotitaSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/themataSchoolTypeSpinner"
         app:layout_constraintVertical_bias="0.26999998" />
 </androidx.constraintlayout.widget.ConstraintLayout>

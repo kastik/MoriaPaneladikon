@@ -60,9 +60,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/anazitisi_thematon_button"
         app:layout_constraintStart_toStartOf="@+id/anazitisi_thematon_button"
-        app:layout_constraintTop_toBottomOf="@+id/anazitisi_thematon_button"
-        app:layout_constraintVertical_bias="0.18"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/ypologismos_gel_buuton"
+        app:layout_constraintVertical_bias="0.50"
+        tools:ignore="HardcodedText"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,20 +31,20 @@ public class BaseisSearch extends AppCompatActivity {
         final Button searchButton = findViewById(R.id.searchbutton);
 
         Context context = this;
-        xroniaSpinner.setAdapter(new ArrayAdapter<>(this, R.layout.spinner_style, getResources().getStringArray(R.array.AvailableYears)));
+        xroniaSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.AvailableYears)));
         xroniaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 Year = getResources().getStringArray(R.array.AvailableYears)[position];
                 switch (position) {
                     case 0: {
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.BaseisSchoolsShow2020));
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.BaseisSchoolsShow2020));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }
                     case 1:
                     case 2: {
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.spinner_style, getResources().getStringArray(R.array.Schools2019));
+                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.Schools2019));
                         schoolTypeSpinner.setAdapter(paok);
                         break;
                     }

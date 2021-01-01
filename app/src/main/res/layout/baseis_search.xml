@@ -21,8 +21,11 @@
     <Spinner
         android:id="@+id/xronologiaSpinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="48dp"
+        android:spinnerMode="dialog"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/xronologiaView"
         app:layout_constraintStart_toStartOf="@+id/xronologiaView"
         app:layout_constraintTop_toBottomOf="@+id/xronologiaView" />
@@ -43,10 +46,11 @@
     <Spinner
         android:id="@+id/schoolTypeSpinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:gravity="center"
-
+        android:spinnerMode="dropdown"
+        android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/schoolTypeView"
         app:layout_constraintHorizontal_bias="1.0"
@@ -55,6 +59,7 @@
 
     <TextView
         android:id="@+id/idikotitaView"
+        style="@android:style/Widget.DeviceDefault.Light.TextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -69,7 +74,7 @@
     <Spinner
         android:id="@+id/idikotitaSpinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="48dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/idikotitaView"

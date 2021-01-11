@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/morio_idikotitas_1" />
 
         <Spinner
-            android:id="@+id/epalSpinner"
+            android:id="@+id/EpalSpecialLessonSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -91,7 +91,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/clc"
-            app:backgroundTint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="@+id/epalSpecialLessonEditText3"
             app:layout_constraintStart_toStartOf="@+id/epalSpecialLessonEditText3"
             app:layout_constraintTop_toBottomOf="@+id/epalSpecialLessonEditText3" />
@@ -105,9 +104,9 @@
             android:importantForAutofill="no"
             android:inputType="numberSigned"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/epalSpinner"
-            app:layout_constraintStart_toStartOf="@+id/epalSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/epalSpinner"
+            app:layout_constraintEnd_toEndOf="@+id/EpalSpecialLessonSpinner"
+            app:layout_constraintStart_toStartOf="@+id/EpalSpecialLessonSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/EpalSpecialLessonSpinner"
             tools:ignore="LabelFor" />
 
         <EditText

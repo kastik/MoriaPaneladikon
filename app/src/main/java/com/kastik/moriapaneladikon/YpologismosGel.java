@@ -21,7 +21,7 @@ public class YpologismosGel extends AppCompatActivity {
         final EditText specialLessonEditText1 = findViewById(R.id.gelSpecialLessonEditText1);
         final EditText specialLessonEditText2 = findViewById(R.id.gelSpecialLessonEditText2);
         final EditText specialLessonEditText3 = findViewById(R.id.gelSpecialLessonEditText3);
-        final Spinner dropdown = findViewById(R.id.spinner);
+        final Spinner dropdown = findViewById(R.id.GelSpecialLessonSpinner);
 
         calcButton.setOnClickListener(view -> {
             double bathmos = calc(dropdown.getSelectedItemPosition());
@@ -32,7 +32,7 @@ public class YpologismosGel extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.IdikaMathimata, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.IdikaMathimata, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(adapter);
 

@@ -21,7 +21,7 @@ public class YpologismosEpal extends AppCompatActivity {
         final EditText epalSpecialLessonEditText2 = findViewById(R.id.epalSpecialLessonEditText2);
         final EditText epalSpecialLessonEditText3 = findViewById(R.id.epalSpecialLessonEditText3);
         final Button calcButton = findViewById(R.id.calcButton);
-        final Spinner dropdown = findViewById(R.id.epalSpinner);
+        final Spinner dropdown = findViewById(R.id.EpalSpecialLessonSpinner);
 
         calcButton.setOnClickListener(view -> {
             double grade = calc(dropdown.getSelectedItemPosition());
@@ -33,7 +33,7 @@ public class YpologismosEpal extends AppCompatActivity {
         });
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.IdikaMathimata, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.IdikaMathimata, R.layout.custom_spinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(adapter);
 

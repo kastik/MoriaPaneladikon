@@ -8,10 +8,6 @@ android {
 
     signingConfigs {
         releaseSign {
-            storeFile file('/home/kastik/AndroidStudioSigningKey.jks')
-            storePassword '214221121236547k'
-            keyAlias 'MoriaKey'
-            keyPassword '214221121236547k'
         }
     }
     compileSdkVersion 30

@@ -21,7 +21,7 @@ public class YpologismosEpal extends AppCompatActivity {
         final EditText epalSpecialLessonEditText2 = findViewById(R.id.epalSpecialLessonEditText2);
         final EditText epalSpecialLessonEditText3 = findViewById(R.id.epalSpecialLessonEditText3);
         final Button calcButton = findViewById(R.id.calcButton);
-        final Spinner dropdown = findViewById(R.id.EpalSpecialLessonSpinner);
+        final Spinner dropdown = findViewById(R.id.epalSpecialLessonSpinner);
 
         calcButton.setOnClickListener(view -> {
             double grade = calc(dropdown.getSelectedItemPosition());
@@ -98,10 +98,10 @@ public class YpologismosEpal extends AppCompatActivity {
     }
 
     private double calc(int specialLessonType) {
-        final EditText moriogenikis1EditText = findViewById(R.id.morio_genikis_1);
-        final EditText moriogenikis2EditText = findViewById(R.id.morio_genikis_2);
-        final EditText morioidik1EditText = findViewById(R.id.morio_idikotitas_1);
-        final EditText morioidik2EditText = findViewById(R.id.morio_idikotitas_2);
+        final EditText moriogenikis1EditText = findViewById(R.id.morioGenikisPedias1);
+        final EditText moriogenikis2EditText = findViewById(R.id.morioGenikisPedias2);
+        final EditText morioidik1EditText = findViewById(R.id.morioIdikotitas1);
+        final EditText morioidik2EditText = findViewById(R.id.morioIdikotitas2);
         EditText epalSpecialLessonEditText1 = findViewById(R.id.epalSpecialLessonEditText1);
         EditText epalSpecialLessonEditText2 = findViewById(R.id.epalSpecialLessonEditText2);
         EditText specialLessonEditText3 = findViewById(R.id.epalSpecialLessonEditText3);

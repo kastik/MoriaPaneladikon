@@ -41,11 +41,11 @@ public class BaseisAdapter extends FirestoreRecyclerAdapter<BaseisModel, BaseisA
 
         public BaseisViewHolder(@NonNull View itemView) {
             super(itemView);
-            IdrimaView = itemView.findViewById(R.id.idrima_view);
-            TitlosSpoudon = itemView.findViewById(R.id.title_view);
-            BaseView = itemView.findViewById(R.id.moria_view);
-            CityView = itemView.findViewById(R.id.city_view);
-            textView = itemView.findViewById(R.id.textView);
+            IdrimaView = itemView.findViewById(R.id.baseisCardIdrimaView);
+            TitlosSpoudon = itemView.findViewById(R.id.baseisCardTitleView);
+            BaseView = itemView.findViewById(R.id.baseisCardMoriaView);
+            CityView = itemView.findViewById(R.id.baseisCardCityView);
+            textView = itemView.findViewById(R.id.baseisCardTyposIsagogis);
         }
     }
 }

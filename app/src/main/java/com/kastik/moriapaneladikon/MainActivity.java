@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         InterstitialAdInit();
         logIn();
 
-        final Button baseis = findViewById(R.id.anazitisi_baseon_button);
-        final Button ypEpal = findViewById(R.id.ypologismos_epal_button);
-        final Button ypGel = findViewById(R.id.ypologismos_gel_buuton);
-        final Button themata = findViewById(R.id.anazitisi_thematon_button);
-        final Button upload_gel = findViewById(R.id.Launch_Gel_Upload);
+        final Button baseis = findViewById(R.id.baseisViewAcivityBtn);
+        final Button ypEpal = findViewById(R.id.calcEpalActivityBtn);
+        final Button ypGel = findViewById(R.id.calcGelActivityBtn);
+        final Button themata = findViewById(R.id.themataSearchActivityBtn);
+        final Button upload_gel = findViewById(R.id.uploadActivityBtn);
 
         ypEpal.setOnClickListener(view -> {
             intent = new Intent(this, YpologismosEpal.class);

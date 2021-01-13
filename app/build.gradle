@@ -55,6 +55,7 @@ android {
             resValue "string", "app_name", "Μορια Debug"
             resValue "string", "provider", "com.kastik.moriapaneladikon.debug.provider"
             signingConfig signingConfigs.debug
+
         }
 
     }

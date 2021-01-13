@@ -53,7 +53,7 @@ android {
             resValue "string", "InterstitialAdId" , "ca-app-pub-3940256099942544/1033173712"
             resValue "string", "app_name", "Μορια Debug"
             resValue "string", "provider", "com.kastik.moriapaneladikon.debug.provider"
-            signingConfig signingConfigs.releaseSign
+            signingConfig signingConfigs.debug
         }
 
     }

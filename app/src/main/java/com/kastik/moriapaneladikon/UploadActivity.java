@@ -57,7 +57,7 @@ public class UploadActivity extends AppCompatActivity {
                     for (DataSnapshot child : snapshot.getChildren()) {
                         BaseisModel model = GetGelModel(child);
                         Log.d("MyLog", "done constructing model");
-                        firestoreRefrence.add(model)
+                        firestoreRefrence.add(child)
                                 .addOnSuccessListener(documentReference ->
                                         Log.d("MyLog", "done uploading model " + child.getKey()))
                                 .addOnFailureListener(e ->
@@ -305,5 +305,4 @@ public class UploadActivity extends AppCompatActivity {
         }
         return finalValue;
     }
-
 }

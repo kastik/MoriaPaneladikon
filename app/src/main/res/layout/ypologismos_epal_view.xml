@@ -12,7 +12,7 @@
         tools:context=".YpologismosEpal">
 
         <EditText
-            android:id="@+id/morio_genikis_1"
+            android:id="@+id/morioGenikisPedias1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/morio_genikis_2"
+            android:id="@+id/morioGenikisPedias2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="101dp"
@@ -39,10 +39,10 @@
             android:inputType="numberSigned|numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/morio_genikis_1" />
+            app:layout_constraintTop_toBottomOf="@+id/morioGenikisPedias1" />
 
         <EditText
-            android:id="@+id/morio_idikotitas_1"
+            android:id="@+id/morioIdikotitas1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="101dp"
@@ -56,10 +56,10 @@
             android:inputType="numberSigned|numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/morio_genikis_2" />
+            app:layout_constraintTop_toBottomOf="@+id/morioGenikisPedias2" />
 
         <EditText
-            android:id="@+id/morio_idikotitas_2"
+            android:id="@+id/morioIdikotitas2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="101dp"
@@ -73,17 +73,17 @@
             android:inputType="numberSigned|numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/morio_idikotitas_1" />
+            app:layout_constraintTop_toBottomOf="@+id/morioIdikotitas1" />
 
         <Spinner
-            android:id="@+id/EpalSpecialLessonSpinner"
+            android:id="@+id/epalSpecialLessonSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:entries="@array/IdikaMathimata"
-            app:layout_constraintEnd_toEndOf="@+id/morio_idikotitas_2"
-            app:layout_constraintStart_toStartOf="@+id/morio_idikotitas_2"
-            app:layout_constraintTop_toBottomOf="@+id/morio_idikotitas_2" />
+            app:layout_constraintEnd_toEndOf="@+id/morioIdikotitas2"
+            app:layout_constraintStart_toStartOf="@+id/morioIdikotitas2"
+            app:layout_constraintTop_toBottomOf="@+id/morioIdikotitas2" />
 
         <Button
             android:id="@+id/calcButton"
@@ -104,9 +104,9 @@
             android:importantForAutofill="no"
             android:inputType="numberSigned"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/EpalSpecialLessonSpinner"
-            app:layout_constraintStart_toStartOf="@+id/EpalSpecialLessonSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/EpalSpecialLessonSpinner"
+            app:layout_constraintEnd_toEndOf="@+id/epalSpecialLessonSpinner"
+            app:layout_constraintStart_toStartOf="@+id/epalSpecialLessonSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/epalSpecialLessonSpinner"
             tools:ignore="LabelFor" />
 
         <EditText

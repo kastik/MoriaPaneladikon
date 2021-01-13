@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/idrima_view"
+            android:id="@+id/baseisCardIdrimaView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -45,17 +45,17 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/mathima"
             app:layout_constraintStart_toStartOf="@+id/mathima"
-            app:layout_constraintTop_toTopOf="@+id/title_view" />
+            app:layout_constraintTop_toTopOf="@+id/baseisCardTitleView" />
 
         <TextView
-            android:id="@+id/title_view"
+            android:id="@+id/baseisCardTitleView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toStartOf="@+id/download_button"
             app:layout_constraintStart_toEndOf="@+id/type"
-            app:layout_constraintTop_toBottomOf="@+id/idrima_view" />
+            app:layout_constraintTop_toBottomOf="@+id/baseisCardIdrimaView" />
 
         <TextView
             android:id="@+id/bash"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/type" />
 
         <TextView
-            android:id="@+id/moria_view"
+            android:id="@+id/baseisCardMoriaView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -81,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/download_button"
             app:layout_constraintStart_toEndOf="@+id/bash"
-            app:layout_constraintTop_toBottomOf="@+id/title_view" />
+            app:layout_constraintTop_toBottomOf="@+id/baseisCardTitleView" />
 
         <ImageView
             android:id="@+id/download_button"

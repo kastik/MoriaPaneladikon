@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/ypologismos_gel_buuton"
+        android:id="@+id/calcGelActivityBtn"
         android:layout_width="155dp"
         android:layout_height="82dp"
         android:layout_marginStart="24dp"
@@ -19,48 +19,48 @@
         app:layout_constraintVertical_bias="0.157" />
 
     <Button
-        android:id="@+id/ypologismos_epal_button"
+        android:id="@+id/calcEpalActivityBtn"
         android:layout_width="155dp"
         android:layout_height="82dp"
         android:layout_marginStart="32dp"
         android:text="@string/ypologismosepal"
-        app:layout_constraintBottom_toBottomOf="@+id/ypologismos_gel_buuton"
-        app:layout_constraintStart_toEndOf="@+id/ypologismos_gel_buuton"
-        app:layout_constraintTop_toTopOf="@+id/ypologismos_gel_buuton"
+        app:layout_constraintBottom_toBottomOf="@+id/calcGelActivityBtn"
+        app:layout_constraintStart_toEndOf="@+id/calcGelActivityBtn"
+        app:layout_constraintTop_toTopOf="@+id/calcGelActivityBtn"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/anazitisi_thematon_button"
+        android:id="@+id/themataSearchActivityBtn"
         android:layout_width="155dp"
         android:layout_height="82dp"
         android:text="@string/thema_search"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ypologismos_gel_buuton"
+        app:layout_constraintEnd_toEndOf="@+id/calcGelActivityBtn"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ypologismos_gel_buuton"
-        app:layout_constraintTop_toBottomOf="@+id/ypologismos_gel_buuton"
+        app:layout_constraintStart_toStartOf="@+id/calcGelActivityBtn"
+        app:layout_constraintTop_toBottomOf="@+id/calcGelActivityBtn"
         app:layout_constraintVertical_bias="0.18" />
 
     <Button
-        android:id="@+id/anazitisi_baseon_button"
+        android:id="@+id/baseisViewAcivityBtn"
         android:layout_width="155dp"
         android:layout_height="82dp"
         android:text="@string/baseis"
-        app:layout_constraintBottom_toBottomOf="@+id/anazitisi_thematon_button"
+        app:layout_constraintBottom_toBottomOf="@+id/themataSearchActivityBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/anazitisi_thematon_button"
-        app:layout_constraintTop_toTopOf="@+id/anazitisi_thematon_button" />
+        app:layout_constraintStart_toEndOf="@+id/themataSearchActivityBtn"
+        app:layout_constraintTop_toTopOf="@+id/themataSearchActivityBtn" />
 
     <Button
-        android:id="@+id/Launch_Gel_Upload"
+        android:id="@+id/uploadActivityBtn"
         android:layout_width="155dp"
         android:layout_height="82dp"
         android:text="Upload Gel Activity"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/anazitisi_thematon_button"
-        app:layout_constraintStart_toStartOf="@+id/anazitisi_thematon_button"
-        app:layout_constraintTop_toBottomOf="@+id/ypologismos_gel_buuton"
+        app:layout_constraintEnd_toEndOf="@+id/themataSearchActivityBtn"
+        app:layout_constraintStart_toStartOf="@+id/themataSearchActivityBtn"
+        app:layout_constraintTop_toBottomOf="@+id/calcGelActivityBtn"
         app:layout_constraintVertical_bias="0.50"
         tools:ignore="HardcodedText"
         tools:visibility="visible" />

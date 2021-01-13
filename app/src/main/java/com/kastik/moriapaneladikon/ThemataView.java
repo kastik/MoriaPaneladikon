@@ -60,7 +60,7 @@ public class ThemataView extends AppCompatActivity {
         Query query2 = mbase2.orderByChild(pathaa);
 
         */
-        RecyclerView recyclerView = findViewById(R.id.recycler);
+        RecyclerView recyclerView = findViewById(R.id.RecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         FirebaseRecyclerOptions<ThemataModel> options
                 = new FirebaseRecyclerOptions.Builder<ThemataModel>()

@@ -137,9 +137,9 @@ public class ThemataAdapter extends FirebaseRecyclerAdapter<ThemataModel, Themat
         @SuppressLint("UseCompatLoadingForDrawables")
         public LeasonViewHolder(@NonNull View itemView) {
             super(itemView);
-            LeassonName = itemView.findViewById(R.id.idrima_view);
-            SchoolType = itemView.findViewById(R.id.title_view);
-            Year = itemView.findViewById(R.id.moria_view);
+            LeassonName = itemView.findViewById(R.id.baseisCardIdrimaView);
+            SchoolType = itemView.findViewById(R.id.baseisCardTitleView);
+            Year = itemView.findViewById(R.id.baseisCardMoriaView);
             downloadIcon = itemView.findViewById(R.id.download_button);
             progressBar = itemView.findViewById(R.id.progressBar);
         }

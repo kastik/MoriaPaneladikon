@@ -6,4 +6,4 @@
     android:ellipsize="marquee"
     android:singleLine="true"
     android:textAlignment="center"
-    android:textSize="18sp"></TextView>
+    android:textSize="18sp" />

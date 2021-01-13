@@ -10,7 +10,7 @@ public class BaseisModel {
 
     public BaseisModel() {
     }
-
+//Epal
     public BaseisModel(int SchoolId, String Idrima, String SchoolName, String Type, int ArxikesThesis, int ThesisKatopinMetaforas, int Epitixontes, int MoriaProtou, ArrayList<Double> KritiriaIsobathmiasProtou, int MoriaTelefteou, ArrayList<Double> KritiriaIsobathmiasTelefteou) {
         this.SchoolId = SchoolId;
         this.Idrima = Idrima;
@@ -25,6 +25,7 @@ public class BaseisModel {
         this.KritiriaIsobathmiasTelefteou = KritiriaIsobathmiasTelefteou;
     }
 
+    //Gel
     public BaseisModel(int SchoolId, String Idrima, String SchoolName, String Type, ArrayList<Integer> Pedio, int ArxikesThesis, int ThesisKatopinMetaforas, int Epitixontes, int MoriaProtou, ArrayList<Double> KritiriaIsobathmiasProtou, int MoriaTelefteou, ArrayList<Double> KritiriaIsobathmiasTelefteou) {
         this.SchoolId = SchoolId;
         this.Idrima = Idrima;

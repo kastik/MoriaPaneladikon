@@ -18,7 +18,7 @@ public class BaseisView extends AppCompatActivity {
     protected void onCreate(Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.recycler_view);
-        RecyclerView recyclerView = findViewById(R.id.recycler);
+        RecyclerView recyclerView = findViewById(R.id.RecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         final FieldPath fieldPath = FieldPath.of("moriaTelefteou");
         final String Year = getIntent().getStringExtra("Year");

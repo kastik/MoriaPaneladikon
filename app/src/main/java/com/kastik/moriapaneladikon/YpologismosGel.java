@@ -21,7 +21,7 @@ public class YpologismosGel extends AppCompatActivity {
         final EditText specialLessonEditText1 = findViewById(R.id.gelSpecialLessonEditText1);
         final EditText specialLessonEditText2 = findViewById(R.id.gelSpecialLessonEditText2);
         final EditText specialLessonEditText3 = findViewById(R.id.gelSpecialLessonEditText3);
-        final Spinner dropdown = findViewById(R.id.GelSpecialLessonSpinner);
+        final Spinner dropdown = findViewById(R.id.gelSpecialLessonSpinner);
 
         calcButton.setOnClickListener(view -> {
             double bathmos = calc(dropdown.getSelectedItemPosition());
@@ -94,10 +94,10 @@ public class YpologismosGel extends AppCompatActivity {
     }
 
     private double calc(int specialLessonType) {
-        final EditText mathima1EditText = findViewById(R.id.mathima1_gel);
-        final EditText mathima2EditText = findViewById(R.id.mathima2_gel);
-        final EditText mathima3EditText = findViewById(R.id.mathima3_gel);
-        final EditText mathima4EditText = findViewById(R.id.mathima4_gel);
+        final EditText mathima1EditText = findViewById(R.id.mathima1Gel);
+        final EditText mathima2EditText = findViewById(R.id.mathima2Gel);
+        final EditText mathima3EditText = findViewById(R.id.mathima3Gel);
+        final EditText mathima4EditText = findViewById(R.id.mathima4Gel);
         final EditText specialLessonEditText1 = findViewById(R.id.gelSpecialLessonEditText1);
         final EditText specialLessonEditText2 = findViewById(R.id.gelSpecialLessonEditText2);
         final EditText specialLessonEditText3 = findViewById(R.id.gelSpecialLessonEditText3);

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/mathima1_gel"
+            android:id="@+id/mathima1Gel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="84dp"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/mathima2_gel"
+            android:id="@+id/mathima2Gel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -31,11 +31,11 @@
             android:hint="@string/mathimage2"
             android:importantForAutofill="no"
             android:inputType="numberSigned|numberDecimal"
-            app:layout_constraintStart_toStartOf="@+id/mathima1_gel"
-            app:layout_constraintTop_toBottomOf="@+id/mathima1_gel" />
+            app:layout_constraintStart_toStartOf="@+id/mathima1Gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima1Gel" />
 
         <EditText
-            android:id="@+id/mathima3_gel"
+            android:id="@+id/mathima3Gel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -43,11 +43,11 @@
             android:hint="@string/mathimagel3"
             android:importantForAutofill="no"
             android:inputType="numberSigned|numberDecimal"
-            app:layout_constraintStart_toStartOf="@+id/mathima2_gel"
-            app:layout_constraintTop_toBottomOf="@+id/mathima2_gel" />
+            app:layout_constraintStart_toStartOf="@+id/mathima2Gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima2Gel" />
 
         <EditText
-            android:id="@+id/mathima4_gel"
+            android:id="@+id/mathima4Gel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -55,8 +55,8 @@
             android:hint="@string/mathimagel4"
             android:importantForAutofill="no"
             android:inputType="numberSigned|numberDecimal"
-            app:layout_constraintStart_toStartOf="@+id/mathima3_gel"
-            app:layout_constraintTop_toBottomOf="@+id/mathima3_gel" />
+            app:layout_constraintStart_toStartOf="@+id/mathima3Gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima3Gel" />
 
         <Button
             android:id="@+id/calcBtn"
@@ -69,14 +69,14 @@
             app:layout_constraintTop_toBottomOf="@+id/gelSpecialLessonEditText3" />
 
         <Spinner
-            android:id="@+id/GelSpecialLessonSpinner"
+            android:id="@+id/gelSpecialLessonSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:entries="@array/IdikaMathimata"
-            app:layout_constraintEnd_toEndOf="@+id/mathima4_gel"
-            app:layout_constraintStart_toStartOf="@+id/mathima4_gel"
-            app:layout_constraintTop_toBottomOf="@+id/mathima4_gel" />
+            app:layout_constraintEnd_toEndOf="@+id/mathima4Gel"
+            app:layout_constraintStart_toStartOf="@+id/mathima4Gel"
+            app:layout_constraintTop_toBottomOf="@+id/mathima4Gel" />
 
         <EditText
             android:id="@+id/gelSpecialLessonEditText1"
@@ -87,9 +87,9 @@
             android:importantForAutofill="no"
             android:inputType="number"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/GelSpecialLessonSpinner"
-            app:layout_constraintStart_toStartOf="@+id/GelSpecialLessonSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/GelSpecialLessonSpinner"
+            app:layout_constraintEnd_toEndOf="@+id/gelSpecialLessonSpinner"
+            app:layout_constraintStart_toStartOf="@+id/gelSpecialLessonSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/gelSpecialLessonSpinner"
             tools:ignore="LabelFor" />
 
         <EditText

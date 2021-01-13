@@ -15,18 +15,18 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/idrima_view"
+            android:id="@+id/baseisCardIdrimaView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/moria_view"
-            app:layout_constraintStart_toStartOf="@+id/title_view"
-            app:layout_constraintTop_toBottomOf="@+id/title_view"
+            app:layout_constraintEnd_toStartOf="@+id/baseisCardMoriaView"
+            app:layout_constraintStart_toStartOf="@+id/baseisCardTitleView"
+            app:layout_constraintTop_toBottomOf="@+id/baseisCardTitleView"
             tools:text="ΑΠΘ" />
 
         <TextView
-            android:id="@+id/title_view"
+            android:id="@+id/baseisCardTitleView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -51,39 +51,39 @@
         -->
 
         <TextView
-            android:id="@+id/moria_view"
+            android:id="@+id/baseisCardMoriaView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/city_view"
+            app:layout_constraintBottom_toBottomOf="@+id/baseisCardCityView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/title_view"
+            app:layout_constraintTop_toTopOf="@+id/baseisCardTitleView"
             app:layout_constraintVertical_bias="0.50"
             tools:text="18.000" />
 
         <TextView
-            android:id="@+id/city_view"
+            android:id="@+id/baseisCardCityView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/idrima_view"
-            app:layout_constraintTop_toBottomOf="@+id/idrima_view"
+            app:layout_constraintStart_toStartOf="@+id/baseisCardIdrimaView"
+            app:layout_constraintTop_toBottomOf="@+id/baseisCardIdrimaView"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Θεσσαλονικη" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/baseisCardTyposIsagogis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/city_view"
-            app:layout_constraintTop_toBottomOf="@+id/idrima_view" />
+            app:layout_constraintStart_toEndOf="@+id/baseisCardCityView"
+            app:layout_constraintTop_toBottomOf="@+id/baseisCardIdrimaView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

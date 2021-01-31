@@ -58,4 +58,25 @@
         app:layout_constraintEnd_toEndOf="@+id/start_idikotita_upoload_button"
         app:layout_constraintStart_toStartOf="@+id/themataUpload"
         app:layout_constraintTop_toBottomOf="@+id/start_epal_upload_button" />
+
+    <Button
+        android:id="@+id/convert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storageTemplateButton"
+        app:layout_constraintVertical_bias="0.886" />
+
+    <Button
+        android:id="@+id/startAlogenisUploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START ALOGENIS UPLOAD"
+        app:layout_constraintBottom_toTopOf="@+id/convert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storageTemplateButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

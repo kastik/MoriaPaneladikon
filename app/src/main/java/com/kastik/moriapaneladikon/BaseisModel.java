@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class BaseisModel {
     private ArrayList<Double> KritiriaIsobathmiasProtou, KritiriaIsobathmiasTelefteou;
     private ArrayList<Integer> Pedio;
-    private int SchoolId, ArxikesThesis, ThesisKatopinMetaforas, Epitixontes, MoriaProtou, MoriaTelefteou;
-    private String Idrima, SchoolName, Type;
+    private int SchoolId, ArxikesThesis, ThesisKatopinMetaforas, Epitixontes, MoriaProtou, MoriaTelefteou, spProtou, spTelefteou;
+    private String Idrima, SchoolName, Type, SchoolType;
 
     public BaseisModel() {
     }
-//Epal
-    public BaseisModel(int SchoolId, String Idrima, String SchoolName, String Type, int ArxikesThesis, int ThesisKatopinMetaforas, int Epitixontes, int MoriaProtou, ArrayList<Double> KritiriaIsobathmiasProtou, int MoriaTelefteou, ArrayList<Double> KritiriaIsobathmiasTelefteou) {
+
+    //Epal
+    public BaseisModel(int SchoolId, String Idrima, String SchoolName, String Type, int ArxikesThesis, int ThesisKatopinMetaforas, int Epitixontes, int MoriaProtou, ArrayList<Double> KritiriaIsobathmiasProtou, int MoriaTelefteou, ArrayList<Double> KritiriaIsobathmiasTelefteou, String schoolType) {
         this.SchoolId = SchoolId;
         this.Idrima = Idrima;
         this.SchoolName = SchoolName;
@@ -23,10 +24,11 @@ public class BaseisModel {
         this.KritiriaIsobathmiasProtou = KritiriaIsobathmiasProtou;
         this.MoriaTelefteou = MoriaTelefteou;
         this.KritiriaIsobathmiasTelefteou = KritiriaIsobathmiasTelefteou;
+        this.SchoolType = schoolType;
     }
 
     //Gel
-    public BaseisModel(int SchoolId, String Idrima, String SchoolName, String Type, ArrayList<Integer> Pedio, int ArxikesThesis, int ThesisKatopinMetaforas, int Epitixontes, int MoriaProtou, ArrayList<Double> KritiriaIsobathmiasProtou, int MoriaTelefteou, ArrayList<Double> KritiriaIsobathmiasTelefteou) {
+    public BaseisModel(int SchoolId, String Idrima, String SchoolName, String Type, ArrayList<Integer> Pedio, int ArxikesThesis, int ThesisKatopinMetaforas, int Epitixontes, int MoriaProtou, ArrayList<Double> KritiriaIsobathmiasProtou, int MoriaTelefteou, ArrayList<Double> KritiriaIsobathmiasTelefteou, String schoolType) {
         this.SchoolId = SchoolId;
         this.Idrima = Idrima;
         this.SchoolName = SchoolName;
@@ -39,6 +41,21 @@ public class BaseisModel {
         this.KritiriaIsobathmiasProtou = KritiriaIsobathmiasProtou;
         this.MoriaTelefteou = MoriaTelefteou;
         this.KritiriaIsobathmiasTelefteou = KritiriaIsobathmiasTelefteou;
+        this.SchoolType = schoolType;
+    }
+
+    // Alogenis, MoriaProtou-Telefteou == bathmosApolitiriou
+    public BaseisModel(String Idrima, String SchoolName, String Type, int ArxikesThesis, int Epitixontes, int MoriaProtou, int MoriaTelefteou, int spProtou, int spTelefteou) {
+        this.Idrima = Idrima;
+        this.SchoolName = SchoolName;
+        this.Type = Type;
+        this.ArxikesThesis = ArxikesThesis;
+        this.Epitixontes = Epitixontes;
+        this.MoriaProtou = MoriaProtou;
+        this.MoriaTelefteou = MoriaTelefteou;
+        this.spProtou = spProtou;
+        this.spTelefteou = spTelefteou;
+        SchoolType = "Alogenis";
     }
 
     public ArrayList<Integer> getPedio() {
@@ -135,5 +152,29 @@ public class BaseisModel {
 
     public void setKritiriaIsobathmiasTelefteou(ArrayList<Double> KritiriaIsobathmiasTelefteou) {
         this.KritiriaIsobathmiasTelefteou = KritiriaIsobathmiasTelefteou;
+    }
+
+    public String getSchoolType() {
+        return SchoolType;
+    }
+
+    public void setSchoolType(String schoolType) {
+        this.SchoolType = schoolType;
+    }
+
+    public int getSpProtou() {
+        return spProtou;
+    }
+
+    public void setSpProtou(int spProtou) {
+        this.spProtou = spProtou;
+    }
+
+    public int getSpTelefteou() {
+        return spTelefteou;
+    }
+
+    public void setSpTelefteou(int spTelefteou) {
+        this.spTelefteou = spTelefteou;
     }
 }

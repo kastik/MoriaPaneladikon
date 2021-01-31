@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 //apply plugin: 'com.google.firebase.crashlytics'
 //apply plugin: 'com.google.firebase.firebase-perf'
@@ -8,13 +9,12 @@ android {
 
     signingConfigs {
         releaseSign {
-            storeFile file('C:/users/kastik/AndroidStudioSigningKey.jks')
+            storeFile file('C:\\Users\\Kastik\\AndroidStudioSigningKey.jks')
             storePassword '214221121236547k'
             keyAlias 'MoriaKey'
             keyPassword '214221121236547k'
         }
     }
-
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -29,7 +29,7 @@ android {
 
     buildTypes {
         release {
-            // getDefaultProguardFile('proguard-android-optimize.txt'),
+            getDefaultProguardFile('proguard-android-optimize.txt')
             minifyEnabled true
             proguardFiles 'proguard-rules-release-test.pro'
             multiDexEnabled false
@@ -54,7 +54,7 @@ android {
             resValue "string", "InterstitialAdId" , "ca-app-pub-3940256099942544/1033173712"
             resValue "string", "app_name", "Μορια Debug"
             resValue "string", "provider", "com.kastik.moriapaneladikon.debug.provider"
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.releaseSign
         }
 
     }
@@ -75,24 +75,25 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'com.google.firebase:firebase-ads:19.6.0'
+    implementation 'com.google.firebase:firebase-ads:19.7.0'
     implementation 'org.jetbrains:annotations:15.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.2'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.google.android.gms:play-services-ads:19.6.0'
+    implementation 'com.google.android.gms:play-services-ads:19.7.0'
     //implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
     //implementation 'com.google.firebase:firebase-perf:19.0.8'
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.firebaseui:firebase-ui-database:6.2.0'
     implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
-    implementation 'com.google.firebase:firebase-firestore:22.0.1'
+    implementation 'com.google.firebase:firebase-firestore:22.0.2'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 }
 repositories {

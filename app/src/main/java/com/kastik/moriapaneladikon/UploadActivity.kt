@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.FirebaseStorage
@@ -16,6 +17,7 @@ import com.google.firebase.storage.ListResult
 import java.util.*
 
 class UploadActivity : AppCompatActivity() {
+    val mylog: String = "MyLog "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.upload_layout)
@@ -40,18 +42,19 @@ class UploadActivity : AppCompatActivity() {
             databaseReference.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (child in snapshot.children) {
-                        Log.d("MyLog", "Started With child1" + child.key)
+                        Log.d(mylog, "Started With child1" + child.key)
                         for (child2 in child.children) {
-                            Log.d("MyLog", "Started With child2" + child2.key)
+
+                            Log.d(mylog, "Started With child2" + child2.key)
                             for (child3 in child2.children) {
-                                Log.d("MyLog", "Started With child3" + child3.key)
+                                Log.d(mylog, "Started With child3" + child3.key)
                                 val extension = child3.child("FileExtension").value.toString()
                                 val path = child3.child("Link").value.toString()
                                 val lessonName = child3.child("LessonName").value.toString()
                                 val schoolType = child3.child("SchoolType").value.toString()
                                 val year = child3.child("Year").value.toString()
                                 paok.document(child.key!!).collection(child2.key!!).add(
-                                        ThemataModel(year, lessonName, schoolType, extension, path)).addOnCompleteListener { Log.d("MyLog", "Finished Uploading child1 " + child.key + "child2 " + child2.key) }
+                                        ThemataModel(year, lessonName, schoolType, extension, path)).addOnCompleteListener { Log.d(mylog, "Finished Uploading child1 " + child.key + "child2 " + child2.key) }
                             }
                         }
                     }
@@ -60,15 +63,22 @@ class UploadActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {}
             })
         }
+
+        val startPediaUpload = findViewById<Button>(R.id.uploadPedia)
+        startPediaUpload.setOnClickListener {
+            pediaUpload()
+        }
+
+
         val createStorageTemplateButton = findViewById<Button>(R.id.storageTemplateButton)
         val ref = FirebaseFirestore.getInstance().collection("Themata").document("2019").collection("Gel_Imerisia")
         createStorageTemplateButton.setOnClickListener {
-            Log.d("MyLog", "Mpike onClick")
+            Log.d(mylog, "Mpike onClick")
             val storageReference = FirebaseStorage.getInstance().getReference("/2019/Gel_Esperina")
             storageReference.listAll().addOnSuccessListener { listResult: ListResult ->
-                Log.d("MyLog", "teliose listAll()")
+                Log.d(mylog, "teliose listAll()")
                 for (item in listResult.prefixes) {
-                    Log.d("MyLog", item.toString())
+                    Log.d(mylog, item.toString())
                     ref.document(item.name).update(
                             "fileExtension", item.toString(), "lessonName", item.name.replace("gs://ypologismosmorion.appspot.com/", ""),
                             "link", item.child("link").name,
@@ -76,7 +86,7 @@ class UploadActivity : AppCompatActivity() {
                             "year", item.child("year").name
                     )
                 }
-            }.addOnFailureListener { e: Exception -> Log.d("MyLog", e.message!!) }
+            }.addOnFailureListener { e: Exception -> Log.d(mylog, e.message!!) }
         }
     }
 
@@ -103,18 +113,18 @@ class UploadActivity : AppCompatActivity() {
                         } else {
                             getGelModel(modelChild)
                         }
-                        Log.d("MyLog", "Done Constructing Model for ${modelChild.key}")
-                        firestoreRefrence.document("2019Test").collection(childMid.key!!).document(model.schoolId.toString()).set(model)
-                                .addOnCompleteListener { Log.d("MyLog", "Done Uploading Model ${modelChild.key}") }
-                                .addOnFailureListener { e: Exception -> Log.d("MyLog", "######Failed With Exception " + e.message) }
+                        Log.d(mylog, "Done Constructing Model for ${modelChild.key}")
+                        firestoreRefrence.document("2019").collection(childMid.key!!).document(model.schoolId.toString()).set(model)
+                                .addOnCompleteListener { Log.d(mylog, "Done Uploading Model ${modelChild.key}") }
+                                .addOnFailureListener { e: Exception -> Log.d(mylog, "######Failed With Exception " + e.message) }
                     }
-                    Log.d("MyLog", "################## Finished Uploading of ${childMid.key} ##################")
+                    Log.d(mylog, "################## Finished Uploading of ${childMid.key} ##################")
                 }
-                Log.d("MyLog", "################## Finished Uploading Of All Models ##################")
+                Log.d(mylog, "################## Finished Uploading Of All Models ##################")
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.d("MyLog", error.details + error.message)
+                Log.d(mylog, error.details + error.message)
             }
         })
     }
@@ -160,19 +170,21 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun pediaToArrayList(stringVal: String): ArrayList<Int> {
-        Log.d("MyLog", "paok $stringVal")
         var string = stringVal
         string = string.replace("paok", "")
-        val pedio = ArrayList<Int>()
         string = string.replace("/", "")
-        for (element in string) {
-            pedio.add(element.toString().toInt())
+        string = string.replace(",", " ")
+        var pedio = ArrayList<Int>()
+        for (i in 0..string.length - 1) {
+            if (!string[i].equals(' ')) {
+                pedio.add(string[i].toString().toInt())
+            }
         }
         return pedio
     }
 
     private fun getGelModel(child: DataSnapshot): BaseisModel {
-        Log.d("MyLog", "Started with " + child.key)
+        Log.d(mylog, "Started with " + child.key)
 
         return getGenericData(child, "Gel")
     }
@@ -193,7 +205,7 @@ class UploadActivity : AppCompatActivity() {
         val type = Objects.requireNonNull(child.child("Type").value).toString()
         val moriaProtou = stringToInt(Objects.requireNonNull(child.child("MoriaProtou").value.toString()).replace(",", ""))
         val moriaTelefteou = stringToInt(Objects.requireNonNull(child.child("MoriaTelefteou").value.toString()).replace(",", ""))
-        Log.d("MyLog", "Done Getting ${child.key} Model Info")
+        Log.d(mylog, "Done Getting ${child.key} Model Info")
         return if (schoolType == "Epal") {
             BaseisModel(schoolId, idrima, schoolName, type, arxikesThesis, thesisKatopinMetaforas, epitixontes, moriaProtou, kritiriaIsobathmiasProtou, moriaTelefteou, kritiriaIsobathmiasTelefteou, "Epal")
         } else {
@@ -256,8 +268,25 @@ class UploadActivity : AppCompatActivity() {
         })
     }
 
+    private fun pediaUpload() {
+        val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2019").collection("Gel_Im_2018_10%")
+        val databaseRefrence = FirebaseDatabase.getInstance().getReference("/IdikotitesAnaId")
+        databaseRefrence.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                firestoreRefrence.get().addOnCompleteListener { task: Task<QuerySnapshot> ->
+                    pediaSearch(task, snapshot)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+    }
+
     private fun domorestuff(task: Task<QuerySnapshot>, snapshot: DataSnapshot) {
-        Log.d("MyLog", "Finished Getting Firestore Data")
+        Log.d(mylog, "Finished Getting Firestore Data")
         for (firestoreSnapshot in task.result) {
 
             val firestoreSchoolId = firestoreSnapshot.id
@@ -267,17 +296,34 @@ class UploadActivity : AppCompatActivity() {
                 if (databaseSchoolId == firestoreSchoolId) {
                     if (databaseSector!!.isNotEmpty() && databaseSector[0] != "null") {
                         firestoreSnapshot.reference.update("Idikotita", databaseSector).addOnCompleteListener {
-                            Log.d("MyLog", "Finished Updating temp ${child.child("id").value.toString()} ${firestoreSnapshot.id} ############################")
+                            Log.d(mylog, "Finished Updating temp ${child.child("id").value.toString()} ${firestoreSnapshot.id} ############################")
                         }
                     } else {
-                        Log.d("MyLog", "##############Failed to upload ${child.child("id").value.toString()}and ${firestoreSnapshot.id}")
+                        Log.d(mylog, "##############Failed to upload ${child.child("id").value.toString()}and ${firestoreSnapshot.id}")
                     }
                 }
             }
         }
     }
 
-    private fun pediaUpload() {
-
+    private fun pediaSearch(task: Task<QuerySnapshot>, snapshot: DataSnapshot) {
+        Log.d(mylog, "Finished Getting Firestore Data")
+        for (firestoreSnapshot in task.result) {
+            val firestoreSchoolId = firestoreSnapshot.id
+            for (child in snapshot.children) {
+                val databaseSchoolId = child.child("id").value.toString()
+                val databasePedio = pediaToArrayList(child.child("field").value.toString())
+                if (databaseSchoolId == firestoreSchoolId) {
+                    firestoreSnapshot.reference.update("Pedio", FieldValue.delete())
+                    firestoreSnapshot.reference.update("pedio", databasePedio).addOnCompleteListener {
+                        Log.d(mylog, "Finished Updating temp ${child.child("id").value.toString()} ${firestoreSnapshot.id} ############################")
+                    }.addOnFailureListener { e ->
+                        Log.d(mylog, "##############Failed to upload ${child.child("id").value.toString()}and ${firestoreSnapshot.id} ${e.message}")
+                    }
+                }
+            }
+        }
     }
+
+
 }

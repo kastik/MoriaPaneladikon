@@ -62,7 +62,11 @@ public class BaseisSearch extends AppCompatActivity {
         schoolTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2020)[position];
+                if (Year.equals("2020")) {
+                    SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2020)[position];
+                } else if (Year.equals("2019")) {
+                    SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2019)[position];
+                }
                 switch (position) {
                     case 0:
                     case 1:

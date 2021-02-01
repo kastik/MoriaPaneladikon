@@ -57,16 +57,24 @@
         <item>ΓΕΛ Εσπερινά Νέο Σύστημα</item>
         <item>ΓΕΛ Ημερίσια Παλιό Σύστημα</item>
         <item>ΓΕΛ Εσπερινά Παλιό Σύστημα</item>
+        <item>ΓΕΛ Ημερίσια 10% 2019</item>
+        <item>ΓΕΛ Ημερίσια 10% 2018</item>
         <item>ΕΠΑΛ Ημερίσια</item>
         <item>ΕΠΑΛ Εσπερινά</item>
+        <item>ΕΠΑΛ Ημερίσια 10% 2019</item>
+        <item>ΕΠΑΛ Ημερίσια 10% 2018</item>
     </string-array>
     <string-array name="BaseisSchoolsPaths2020">
         <item>/Gel_Neo_Imerisia</item>
         <item>/Gel_Neo_Esperina</item>
         <item>/Gel_Palio_Imerisia"</item>
         <item>/Gel_Palio_Esperina</item>
+        <item>/Gel_Im_2019_10%</item>
+        <item>/Gel_Im_2018_10%</item>
         <item>/Epal</item>
         <item>/Epal_Esperina</item>
+        <item>/Epal_Im_2019_10%</item>
+        <item>/Epal_Im_2019</item>
     </string-array>
     <string-array name="ThemataSchoolsToShow2020">
         <item>ΓΕΛ Ημερίσια &amp; Εσπερινά Νέο Σύστημα</item>
@@ -87,8 +95,14 @@
     <string-array name="Schools2019">
         <item>ΓΕΛ Ημερίσια</item>
         <item>ΓΕΛ Εσπερινά</item>
-        <item>ΕΠΑΛ Ημερίσια</item>
-        <item>ΕΠΑΛ Εσπερινά</item>
+        <item>ΓΕΛ Ημερίσια 10% 2018</item>
+        <item>ΓΕΛ Ημερίσια 10% 2017</item>
+    </string-array>
+    <string-array name="BaseisSchoolsPaths2019">
+        <item>/Gel_Imerisia</item>
+        <item>/Gel_Esperina</item>
+        <item>/Gel_Im_2018_10%</item>
+        <item>/Gel_Im_2017_10%</item>
     </string-array>
     <string-array name="ThemataSchools2019">
         <item>ΓΕ.Λ. Ημερίσια &amp; Εσπερινά</item>

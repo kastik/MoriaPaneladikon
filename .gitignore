@@ -1,3 +1,11 @@
 /.idea/
 /local.properties
+/.github/
+/build/
 /.gradle/
+/.gradle/checksums/
+/.gradle/buildOutputCleanup/
+/.gradle/6.6/javaCompile/
+/.gradle/6.6/fileHashes/
+/.gradle/6.6/executionHistory/
+/.gradle/6.6/

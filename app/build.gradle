@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
-//apply plugin: 'com.google.firebase.crashlytics'
-//apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 
 android {
@@ -22,8 +22,8 @@ android {
         applicationId "com.kastik.moriapaneladikon"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0-alpha"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,17 +34,18 @@ android {
             proguardFiles 'proguard-rules-release-test.pro'
             multiDexEnabled false
             renderscriptDebuggable false
-            signingConfig signingConfigs.releaseSign
-            debuggable true
+            debuggable false
             jniDebuggable false
             resValue "string", "InterstitialAdId", "ca-app-pub-8103443984633175/9190337650"
             resValue "string", "app_name", "Μορια"
             resValue "string", "provider", "com.kastik.moriapaneladikon.provider"
+            signingConfig signingConfigs.releaseSign
         }
 
         debug {
+            getDefaultProguardFile('proguard-android-optimize.txt')
             minifyEnabled false
-            proguardFiles
+            proguardFiles 'proguard-rules-release-test.pro'
             multiDexEnabled true
             renderscriptDebuggable true
             renderscriptOptimLevel 3
@@ -84,8 +85,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:18.0.2'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.android.gms:play-services-ads:19.7.0'
-    //implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
-    //implementation 'com.google.firebase:firebase-perf:19.0.8'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.1'
+    implementation 'com.google.firebase:firebase-perf:19.1.0'
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.firebaseui:firebase-ui-database:6.2.0'
     implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'

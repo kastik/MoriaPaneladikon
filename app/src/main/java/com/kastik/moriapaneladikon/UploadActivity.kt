@@ -255,7 +255,7 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun idikotitesUpload() {
-        val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2019Test").collection("Epal_Imerisia")
+        val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2019").collection("Epal_Im_2018_10%")
         val databaseRefrence = FirebaseDatabase.getInstance().getReference("/IdikotitesAnaId")
         databaseRefrence.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

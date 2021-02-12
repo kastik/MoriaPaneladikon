@@ -56,6 +56,7 @@
         <item>ΓΕΛ Ημερίσια Νέο Σύστημα</item>
         <item>ΓΕΛ Εσπερινά Νέο Σύστημα</item>
         <item>ΓΕΛ Ημερίσια Παλιό Σύστημα</item>
+
         <item>ΓΕΛ Εσπερινά Παλιό Σύστημα</item>
         <item>ΓΕΛ Ημερίσια 10% 2019</item>
         <item>ΓΕΛ Ημερίσια 10% 2018</item>
@@ -97,12 +98,18 @@
         <item>ΓΕΛ Εσπερινά</item>
         <item>ΓΕΛ Ημερίσια 10% 2018</item>
         <item>ΓΕΛ Ημερίσια 10% 2017</item>
+        <item>ΕΠΑΛ Ημερίσια</item>
+        <item>ΕΠΑΛ Εσπερινά</item>
+        <item>ΕΠΑΛ Ημερίσια 10% 2018</item>
     </string-array>
     <string-array name="BaseisSchoolsPaths2019">
         <item>/Gel_Imerisia</item>
         <item>/Gel_Esperina</item>
         <item>/Gel_Im_2018_10%</item>
         <item>/Gel_Im_2017_10%</item>
+        <item>/Epal_Imerisia</item>
+        <item>/Epal_Esperina</item>
+        <item>/Epal_Imerisia_2018_10%</item>
     </string-array>
     <string-array name="ThemataSchools2019">
         <item>ΓΕ.Λ. Ημερίσια &amp; Εσπερινά</item>

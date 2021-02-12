@@ -1,11 +1,12 @@
 package com.kastik.moriapaneladikon;
 
+import android.util.Log;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -21,7 +22,9 @@ public class ExampleUnitTest {
     @Test
     public void mTest() {
         ArrayList paok = new ArrayList();
-        assertNull(null);
+        paok.add(4);
+        paok.add(3);
+        Log.d("as", paok.toString());
     }
 
 }

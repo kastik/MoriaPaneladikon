@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,19 +36,13 @@ public class BaseisSearch extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 Year = getResources().getStringArray(R.array.AvailableYears)[position];
-                switch (position) {
-                    case 0: {
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.BaseisSchoolsShow2020));
-                        schoolTypeSpinner.setAdapter(paok);
-                        break;
-                    }
-                    case 1:
-                    case 2: {
-                        ArrayAdapter<? extends String> paok = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.Schools2019));
-                        schoolTypeSpinner.setAdapter(paok);
-                        break;
-                    }
+                ArrayAdapter<? extends String> schoolTypeAdapter;
+                if (Year.equals("2020")) {
+                    schoolTypeAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.BaseisSchoolsShow2020));
+                } else {
+                    schoolTypeAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.Schools2019));
                 }
+                schoolTypeSpinner.setAdapter(schoolTypeAdapter);
             }
 
             @Override
@@ -62,40 +55,29 @@ public class BaseisSearch extends AppCompatActivity {
         schoolTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                ArrayAdapter<? extends String> tomeasIdikotitaAdapter;
                 if (Year.equals("2020")) {
                     SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2020)[position];
-                } else if (Year.equals("2019")) {
+                } else {
                     SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2019)[position];
                 }
-                switch (position) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3: {
-                        ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.PediaToShow));
-                        idikotitaSpinner.setAdapter(paoka);
-                        TextView idikotitaPedioTextView = findViewById(R.id.baseisIdikotitaPedioTextView);
-                        idikotitaPedioTextView.setText("Πεδιο");
-                        isEpal = false;
-                        break;
-                    }
-                    case 4:
-                    case 5: {
-                        ArrayAdapter<? extends String> paoka = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.TomisToShow));
-                        idikotitaSpinner.setAdapter(paoka);
-                        TextView idikotitaPedioTextView = findViewById(R.id.baseisIdikotitaPedioTextView);
-                        idikotitaPedioTextView.setText("Τομεας");
-                        isEpal = true;
-                        break;
-                    }
-                }
-            }
 
+                if (SchoolType.contains("Gel")) {
+                    tomeasIdikotitaAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.PediaToShow));
+                    isEpal = false;
+                } else {
+                    tomeasIdikotitaAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.TomisToShow));
+                    isEpal = true;
+                }
+
+                idikotitaSpinner.setAdapter(tomeasIdikotitaAdapter);
+            }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+
 
         idikotitaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -120,8 +102,8 @@ public class BaseisSearch extends AppCompatActivity {
             themataViewActivity.putExtra("SchoolType", SchoolType);
             themataViewActivity.putExtra("isEpal", isEpal);
             themataViewActivity.putExtra("Idikotita", Idikotita);
+            Log.d("path", "Baseis" + Year + SchoolType + Pedio + Idikotita + isEpal);
             startActivity(themataViewActivity);
-            Log.d("path", "Baseis" + Year + SchoolType + Pedio);
         });
 
     }

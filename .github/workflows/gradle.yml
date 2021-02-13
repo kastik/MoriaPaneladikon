@@ -29,8 +29,8 @@ jobs:
       run: |
         echo "${{ secrets.GOOGLE_SERVICES_JSON_RELEASE }}" > release_google-services.json.asc
         echo "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG }}" > debug_google-services.json.asc
-        mkdir src/release
-        mkdir src/debug
+        mkdir app/src/release
+        mkdir app/src/debug
         gpg -d --passphrase "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG_RELEASE_PASSPHRASE }}" --batch release_google-services.json.asc > app/src/release/google-services.json
         gpg -d --passphrase "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG_RELEASE_PASSPHRASE }}" --batch debug_google-services.json.asc > app/src/debug/google-services.json
     - name: Build with Gradle

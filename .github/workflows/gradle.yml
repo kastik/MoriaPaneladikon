@@ -2,7 +2,6 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
 name: Java CI with Gradle
-
 on:
   push:
     branches: [ master ]
@@ -10,10 +9,18 @@ on:
     branches: [ master ]
 
 jobs:
+  AssembeReleaseKeystore:
+    name: restoreFile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: RestoreJksFile
+        run: 
+          echo "{{$ secrets.RELEASE_KEYSTORE }}" > keystore.asc
+          gpg -d --passphrase "{{$ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch keystore.asc > app/AndroidStudioSigningKey.jks
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8

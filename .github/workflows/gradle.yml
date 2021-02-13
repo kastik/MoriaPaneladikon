@@ -41,19 +41,6 @@ jobs:
       run: ./gradlew :app:bundleRelease
     - name: Build Debug Bundle with Gradle
       run: ./gradlew :app:bundleDebug
-    - name: View files
-      run: |
-        echo "home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app"
-        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app
-        echo ""
-        echo "home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release"
-        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release
-        echo ""
-        echo "home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug"
-        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug
-        echo ""
-        echo "home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/release"
-        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/release
 
     - name: Get APK files
       uses: actions/upload-artifact@v2
@@ -62,5 +49,5 @@ jobs:
         path: |
           /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release/app-release.apk
           /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug/app-debug.apk
-          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/release/app-release.aab
-          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/debug/app-debug.aab
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/release/app-release.aab
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/debug/app-debug.aab

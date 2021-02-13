@@ -42,15 +42,7 @@ jobs:
     - name: Build Debug Bundle with Gradle
       run: ./gradlew :app:bundleDebug
       
-    - name: Get APK files
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Get Release apk 
-        path: |
-          app/build/outputs/apk/release/app-release.apk
-          app/build/outputs/apk/debug/app-debug.apk
-          app/release/app-release.aab
-          app/debug/app-debug.aab
+    
           
 
 

@@ -9,7 +9,7 @@ android {
 
     signingConfigs {
         releaseSign {
-            storeFile file('app/AndroidStudioSigningKey.jks')
+            storeFile file('AndroidStudioSigningKey.jks')
             storePassword '214221121236547k'
             keyAlias 'MoriaKey'
             keyPassword '214221121236547k'

@@ -47,7 +47,7 @@ jobs:
       with:
         name: Get Release apk 
         path: |
-          app/build/outputs/apk/release/app-release.apk
-          app/build/outputs/apk/debug/app-debug.apk
-          release/app-release.aab
-          debug/app-debug.aab
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release/app-release.apk
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug/app-debug.apk
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/release/app-release.aab
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/debug/app-debug.aab

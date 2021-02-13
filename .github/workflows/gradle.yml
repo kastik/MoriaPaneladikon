@@ -18,7 +18,7 @@ jobs:
       - name: RestoreJksFile
         run: |
           echo "{{$ secrets.RELEASE_KEYSTORE }}" > keystore.asc
-          pgp -d --passphrase "{{$ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch keystore.asc > app/AndroidStudioSigningKey.jks
+          gpg -d --passphrase "{{$ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch keystore.asc > app/AndroidStudioSigningKey.jks
   build:
 
     runs-on: ubuntu-latest

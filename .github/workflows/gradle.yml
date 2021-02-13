@@ -47,10 +47,11 @@ jobs:
       with:
         name: Get Release apk 
         path: |
-          app/build/outputs/apk/release/app-release.apk
-          app/build/outputs/apk/debug/app-debug.apk
           app/release/app-release.aab
           app/debug/app-debug.aab
+          app/build/outputs/apk/release/app-release.apk
+          app/build/outputs/apk/debug/app-debug.apk
+          
           
 
 

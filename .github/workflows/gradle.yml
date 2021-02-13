@@ -49,8 +49,8 @@ jobs:
         path: |
           app/build/outputs/apk/release/app-release.apk
           app/build/outputs/apk/debug/app-debug.apk
-          /app/release/app-release.aab
-          /app/debug/app-debug.aab
+          app/release/app-release.aab
+          app/debug/app-debug.aab
           
 
 

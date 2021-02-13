@@ -18,9 +18,8 @@ jobs:
         run: |
           echo "${{ secrets.RELEASE_KEYSTORE }}" > keystore.asc
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch keystore.asc > app/AndroidStudioSigningKey.jks
-          mkdir app
-          cd app 
-          ls
+          cd app
+          ls -a
 
   build:
 

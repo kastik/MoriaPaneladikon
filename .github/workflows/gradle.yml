@@ -27,8 +27,3 @@ jobs:
         gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch keystore.asc > app/AndroidStudioSigningKey.jks
     - name: Build with Gradle
       run: ./gradlew --scan assembleDebug
-    - name: Upload APK
-      uses: actions/upload-artifact@v1
-        with:
-          name: app
-          path: app/build/outputs/apk/debug/app-debug.apk

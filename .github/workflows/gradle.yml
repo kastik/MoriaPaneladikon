@@ -46,7 +46,7 @@ jobs:
         ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app
         ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release
         ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug
-        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/release
+        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build
         ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/debug
     - name: Get APK files
       uses: actions/upload-artifact@v2

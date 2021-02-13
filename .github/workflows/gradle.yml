@@ -20,12 +20,12 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: RestoreJksFile
+    - name: Restore Java Keystore File
       run: |
         echo "${{ secrets.RELEASE_KEYSTORE }}" > keystore.asc
         gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" --batch keystore.asc > app/AndroidStudioSigningKey.jks
         
-    - name: Restore Google-Services.json files
+    - name: Restore google-services.json files
       run: |
         echo "${{ secrets.GOOGLE_SERVICES_JSON_RELEASE }}" > release_google-services.json.asc
         echo "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG }}" > debug_google-services.json.asc

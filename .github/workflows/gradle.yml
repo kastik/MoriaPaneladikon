@@ -41,7 +41,13 @@ jobs:
       run: ./gradlew :app:bundleRelease
     - name: Build Debug Bundle with Gradle
       run: ./gradlew :app:bundleDebug
-      
+    - name: View files
+      run: |
+        ls /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app
+        /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release/app-release.apk
+        /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release/app-release.apk
+        /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/release
+        /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/debug
     - name: Get APK files
       uses: actions/upload-artifact@v2
       with:

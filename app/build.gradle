@@ -13,6 +13,8 @@ android {
             storePassword '214221121236547k'
             keyAlias 'MoriaKey'
             keyPassword '214221121236547k'
+            v1SigningEnabled true
+            v2SigningEnabled true
         }
     }
     compileSdkVersion 30

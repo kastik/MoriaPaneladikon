@@ -33,10 +33,21 @@ jobs:
         mkdir app/src/debug
         gpg -d --passphrase "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG_RELEASE_PASSPHRASE }}" --batch release_google-services.json.asc > app/src/release/google-services.json
         gpg -d --passphrase "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG_RELEASE_PASSPHRASE }}" --batch debug_google-services.json.asc > app/src/debug/google-services.json
-    - name: Build with Gradle
+    - name: Build Release Apk with Gradle
       run: ./gradlew assembleRelease
-    - name: Upload APK
-      uses: actions/upload-artifact@v1
+    - name: Build Debug Apk with Gradle
+      run: ./gradlew assembleDebug
+    - name: Build Release Bundle with Gradle 
+      run: ./gradlew :app:bundleRelease
+    - name: Build Debug Bundle with Gradle
+      run: ./gradlew :app:bundleDebug
+
+    - name: Get APK files
+      uses: actions/upload-artifact@v2
       with:
-        name: app
-        path: app/build/outputs/apk/release/app-release.apk
+        name: Get Release apk 
+        path: |
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/release/app-release.apk
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug/app-debug.apk
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/release/app-release.aab
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/debug/app-debug.aab

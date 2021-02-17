@@ -2,6 +2,7 @@ package com.kastik.moriapaneladikon;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class BaseisModel {
     private ArrayList<Double> KritiriaIsobathmiasProtou, KritiriaIsobathmiasTelefteou;
     private ArrayList<Integer> Pedio;
@@ -154,25 +155,31 @@ public class BaseisModel {
         this.KritiriaIsobathmiasTelefteou = KritiriaIsobathmiasTelefteou;
     }
 
+
     public String getSchoolType() {
         return SchoolType;
     }
+
 
     public void setSchoolType(String schoolType) {
         this.SchoolType = schoolType;
     }
 
+
     public int getSpProtou() {
         return spProtou;
     }
+
 
     public void setSpProtou(int spProtou) {
         this.spProtou = spProtou;
     }
 
+
     public int getSpTelefteou() {
         return spTelefteou;
     }
+
 
     public void setSpTelefteou(int spTelefteou) {
         this.spTelefteou = spTelefteou;

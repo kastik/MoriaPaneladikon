@@ -124,6 +124,27 @@
 
 
     <!--######2018 Vars ######-->
+    <string-array name="Schools2018">
+        <item>ΓΕΛ Ημερίσια</item>
+        <item>ΓΕΛ Εσπερινά</item>
+        <item>ΓΕΛ Ημερίσια 10% 2017</item>
+        <item>ΓΕΛ Ημερίσια Επαλ Β 10% 2016</item>
+        <item>ΕΠΑΛ Ημερίσια</item>
+        <item>ΕΠΑΛ Εσπερινά</item>
+        <item>ΕΠΑΛ Ημερίσια 10% 2017</item>
+        <item>ΕΠΑΛ Α Ημερίσια 10% 2016</item>
+    </string-array>
+    <string-array name="BaseisSchoolsPaths2018">
+        <item>/Gel_Imerisia</item>
+        <item>/Gel_Esperina</item>
+        <item>/Gel_Im_2017_10%</item>
+        <item>/Gel_Im_EpalB_2016_10%</item>
+        <item>/Epal_Imerisia</item>
+        <item>/Epal_Esperina</item>
+        <item>/Epal_Im_2017_10%</item>
+        <item>/EpalA_Im_2016_10%</item>
+    </string-array>
+
     <string-array name="ThemataSchools2018">
         <item>ΓΕ.Λ. Ημερίσια</item>
         <item>ΓΕ.Λ. Εσπερινά</item>

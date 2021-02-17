@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,8 +40,10 @@ public class BaseisSearch extends AppCompatActivity {
                 ArrayAdapter<? extends String> schoolTypeAdapter;
                 if (Year.equals("2020")) {
                     schoolTypeAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.BaseisSchoolsShow2020));
-                } else {
+                } else if (Year.equals("2019")) {
                     schoolTypeAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.Schools2019));
+                } else {
+                    schoolTypeAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.Schools2018));
                 }
                 schoolTypeSpinner.setAdapter(schoolTypeAdapter);
             }
@@ -58,14 +61,19 @@ public class BaseisSearch extends AppCompatActivity {
                 ArrayAdapter<? extends String> tomeasIdikotitaAdapter;
                 if (Year.equals("2020")) {
                     SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2020)[position];
-                } else {
+                } else if (Year.equals("2019")) {
                     SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2019)[position];
+                } else {
+                    SchoolType = getResources().getStringArray(R.array.BaseisSchoolsPaths2018)[position];
                 }
 
+                TextView idikotitaPedioTextView = findViewById(R.id.baseisIdikotitaPedioTextView);
                 if (SchoolType.contains("Gel")) {
+                    idikotitaPedioTextView.setText("Πεδίο");
                     tomeasIdikotitaAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.PediaToShow));
                     isEpal = false;
                 } else {
+                    idikotitaPedioTextView.setText("Ειδικότητα");
                     tomeasIdikotitaAdapter = new ArrayAdapter<>(context, R.layout.custom_spinner, getResources().getStringArray(R.array.TomisToShow));
                     isEpal = true;
                 }

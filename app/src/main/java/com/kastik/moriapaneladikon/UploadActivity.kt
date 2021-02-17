@@ -174,9 +174,9 @@ class UploadActivity : AppCompatActivity() {
         string = string.replace("paok", "")
         string = string.replace("/", "")
         string = string.replace(",", " ")
-        var pedio = ArrayList<Int>()
-        for (i in 0..string.length - 1) {
-            if (!string[i].equals(' ')) {
+        val pedio = ArrayList<Int>()
+        for (i in string.indices) {
+            if (string[i] != ' ') {
                 pedio.add(string[i].toString().toInt())
             }
         }
@@ -215,8 +215,8 @@ class UploadActivity : AppCompatActivity() {
         }
     }
 
-    private fun IdikotitaToArrayList(idikotita: String): ArrayList<String>? {
-        var idikotita = replaceIdikotitaChars(idikotita)
+    private fun idikotitaToArrayList(idikotitaTaken: String): ArrayList<String>? {
+        val idikotita = replaceIdikotitaChars(idikotitaTaken)
         var temp = java.lang.StringBuilder()
         var finalValue: ArrayList<String>? = ArrayList()
         if (idikotita != temp.toString()) {
@@ -255,34 +255,40 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun idikotitesUpload() {
-        val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2019").collection("Epal_Im_2018_10%")
-        val databaseRefrence = FirebaseDatabase.getInstance().getReference("/IdikotitesAnaId")
-        databaseRefrence.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                firestoreRefrence.get().addOnCompleteListener { task: Task<QuerySnapshot> ->
-                    domorestuff(task, snapshot)
+        val paok = arrayOf("/Gel_Im_EpalB_2016_10%", "/Epal_Imerisia", "/Epal_Esperina", "/Epal_Im_2017_10%", "/EpalA_Im_2016_10%")
+        for (i in 0..4) {
+            val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2018").collection(paok[i])
+            val databaseRefrence = FirebaseDatabase.getInstance().getReference("/IdikotitesAnaId")
+            databaseRefrence.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    firestoreRefrence.get().addOnCompleteListener { task: Task<QuerySnapshot> ->
+                        domorestuff(task, snapshot)
+                    }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {}
-        })
+                override fun onCancelled(error: DatabaseError) {}
+            })
+        }
     }
 
     private fun pediaUpload() {
-        val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2019").collection("Gel_Im_2018_10%")
-        val databaseRefrence = FirebaseDatabase.getInstance().getReference("/IdikotitesAnaId")
-        databaseRefrence.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                firestoreRefrence.get().addOnCompleteListener { task: Task<QuerySnapshot> ->
-                    pediaSearch(task, snapshot)
+        val paok = arrayOf("/Gel_Imerisia", "/Gel_Esperina", "/Gel_Im_2017_10%", "/Gel_Im_EpalB_2016_10%")
+        for (i in 0..3) {
+            val firestoreRefrence = FirebaseFirestore.getInstance().collection("Baseis").document("2018").collection(paok[i])
+            val databaseRefrence = FirebaseDatabase.getInstance().getReference("/IdikotitesAnaId")
+            databaseRefrence.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    firestoreRefrence.get().addOnCompleteListener { task: Task<QuerySnapshot> ->
+                        pediaSearch(task, snapshot)
+                    }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(error: DatabaseError) {
 
-            }
+                }
 
-        })
+            })
+        }
     }
 
     private fun domorestuff(task: Task<QuerySnapshot>, snapshot: DataSnapshot) {
@@ -292,7 +298,7 @@ class UploadActivity : AppCompatActivity() {
             val firestoreSchoolId = firestoreSnapshot.id
             for (child in snapshot.children) {
                 val databaseSchoolId = child.child("id").value.toString()
-                val databaseSector = IdikotitaToArrayList(child.child("sector").value.toString())
+                val databaseSector = idikotitaToArrayList(child.child("sector").value.toString())
                 if (databaseSchoolId == firestoreSchoolId) {
                     if (databaseSector!!.isNotEmpty() && databaseSector[0] != "null") {
                         firestoreSnapshot.reference.update("Idikotita", databaseSector).addOnCompleteListener {

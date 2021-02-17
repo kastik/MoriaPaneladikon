@@ -20,9 +20,15 @@ public class BaseisAdapter extends FirestoreRecyclerAdapter<BaseisModel, BaseisA
     protected void onBindViewHolder(@NonNull BaseisAdapter.BaseisViewHolder holder, int position, @NonNull BaseisModel model) {
         holder.IdrimaView.setText(String.valueOf(model.getIdrima()));
         holder.CityView.setText(String.valueOf(model.getSchoolId()));
-        holder.BaseView.setText(String.valueOf(model.getMoriaTelefteou()));
         holder.TitlosSpoudon.setText(String.valueOf(model.getSchoolName()));
         holder.textView.setText(model.getType());
+        int moriaTelefteou = model.getMoriaTelefteou();
+        if (moriaTelefteou > 0) {
+            holder.BaseView.setText(String.valueOf(moriaTelefteou));
+        } else {
+            holder.BaseView.setText(String.valueOf(0));
+            holder.BaseView.setVisibility(View.INVISIBLE);
+        }
     }
 
     @NonNull

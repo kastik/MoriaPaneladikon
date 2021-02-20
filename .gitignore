@@ -75,3 +75,5 @@ app/release/output.json
 .idea/codeStyles/
 /app/src/androidTest/
 /app/src/test/
+/app/debug/output-metadata.json
+/app/release/output-metadata.json

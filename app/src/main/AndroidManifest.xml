@@ -28,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".YpologismosGel" />
-        <activity android:name=".YpologismosEpal" />
         <activity android:name=".ThemataSearch" />
         <activity android:name=".ThemataView" />
         <activity android:name=".BaseisView" />

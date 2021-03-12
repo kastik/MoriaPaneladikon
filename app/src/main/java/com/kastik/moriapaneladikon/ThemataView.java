@@ -1,6 +1,8 @@
 package com.kastik.moriapaneladikon;
 
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,12 +18,19 @@ public class ThemataView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recycler_view);
+        setContentView(R.layout.loading_screen);
+
+        ProgressBar progressBar = findViewById(R.id.progressBar2);
+        progressBar.startAnimation(new Animation() {
+            @Override
+            public void start() {
+                super.start();
+            }
+        });
+
 
         String path = getIntent().getStringExtra("path");
         assert path != null;
-
-
 
         /*
         Context context = this;
@@ -67,6 +76,7 @@ public class ThemataView extends AppCompatActivity {
                 .setQuery(query, ThemataModel.class)
                 .build();
         adapter = new ThemataAdapter(options, this);
+        setContentView(R.layout.recycler_view);
         recyclerView.setAdapter(adapter);
 
     }

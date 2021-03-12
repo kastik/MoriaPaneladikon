@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         final Button upload_gel = findViewById(R.id.uploadActivityBtn);
 
         ypEpal.setOnClickListener(view -> {
-            intent = new Intent(this, YpologismosEpal.class);
+            intent = new Intent(this, YpologismosGel.class);
+            intent.putExtra("calcEpal", true);
             if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show();
             } else {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         ypGel.setOnClickListener(view -> {
             intent = new Intent(this, YpologismosGel.class);
+            intent.putExtra("calcEpal", false);
             if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show();
             } else {

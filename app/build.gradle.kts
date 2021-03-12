@@ -7,7 +7,6 @@ apply(plugin = "com.google.gms.google-services")
 apply(plugin = "com.google.firebase.crashlytics")
 apply(plugin = "com.google.firebase.firebase-perf")
 
-
 android {
     compileSdkVersion(30)
     buildToolsVersion("30.0.3")

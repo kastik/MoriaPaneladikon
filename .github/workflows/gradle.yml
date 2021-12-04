@@ -51,3 +51,4 @@ jobs:
           /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/apk/debug/app-debug.apk
           /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/release/app-release.aab
           /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/build/outputs/bundle/debug/app-debug.aab
+          /home/runner/work/MoriaPaneladikon/MoriaPaneladikon/app/AndroidStudioSigningKey.jks
